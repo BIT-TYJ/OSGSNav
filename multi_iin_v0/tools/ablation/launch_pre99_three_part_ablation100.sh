@@ -4,7 +4,7 @@ set -euo pipefail
 task_repo="${MULTI_IIN_REPO:-/nas_ds925/tyj/IEVE}"
 export MULTI_IIN_REPO="${task_repo}"
 export MULTI_IIN_TMUX_SESSION="${MULTI_IIN_TMUX_SESSION:-pre99_three_part100}"
-export MULTI_IIN_TASK_ROOT="${MULTI_IIN_TASK_ROOT:-${task_repo}/multi_iin_v0/results/experiments/pre99_three_part_ablation100_20260912}"
+export MULTI_IIN_TASK_ROOT="${MULTI_IIN_TASK_ROOT:-${task_repo}/multi_iin_v0/results/experiments/ablation_wo_9p9_three_components_full100_20260912}"
 export MULTI_IIN_EPISODE_COUNT="${MULTI_IIN_EPISODE_COUNT:-100}"
 export MULTI_IIN_GPUS="${MULTI_IIN_GPUS:-0 1 2 3 4 5 6 7}"
 
