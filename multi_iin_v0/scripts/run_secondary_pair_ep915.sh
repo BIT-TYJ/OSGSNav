@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-mode="${1:?usage: $0 enabled|disabled GPU_ID OUTPUT_ROOT}"
+mode="${1:?usage: $0 enabled|disabled GPU_ID OUTPUT_ROOT [EPISODE_ID] [CASE_NAME] [PHASE2_STEP]}"
 gpu_id="${2:?missing GPU_ID}"
 output_root="${3:?missing OUTPUT_ROOT}"
+episode_id="${4:-914}"
+case_name="${5:-ep915}"
+phase2_step="${6:-400}"
 
 case "$mode" in
   enabled) secondary=1 ;;
@@ -27,7 +30,7 @@ export XAUTHORITY=/home/tyj/.Xauthority
   --enable_3dgs 1 --use_minav_confirmation_localization 1 \
   --minav_initial_spin 1 --minav_target_detect_window 2 \
   --minav_enable_strategy_transition "$secondary" \
-  --minav_strategy_phase2_start_step 400 --minav_strategy_phase3_start_step 800 \
+  --minav_strategy_phase2_start_step "$phase2_step" --minav_strategy_phase3_start_step 800 \
   --minav_strategy_use_area_growth_trigger 0 \
   --minav_phase2_arrival_threshold 0.35 \
   --minav_phase2_standoff_retry_limit 3 --minav_phase2_standoff_stuck_patience 8 \
@@ -41,6 +44,6 @@ export XAUTHORITY=/home/tyj/.Xauthority
   --exploration_policy frontier --frontier_visited_path_block_radius_m 0.5 \
   --frontier_debug_log 1 --print_images 1 --visualize 1 \
   --target_instance_debug_dump 1 --minav_planner_debug 1 \
-  --eval_habitat_episode_id 914 --num_eval_episodes 1 \
-  --exp_name "paper_ep915_secondary_${mode}" \
+  --eval_habitat_episode_id "$episode_id" --num_eval_episodes 1 \
+  --exp_name "paper_${case_name}_secondary_${mode}" \
   2>&1 | tee "$output_root/run.log"
