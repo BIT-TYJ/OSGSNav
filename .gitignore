@@ -1,3 +1,6 @@
 data/**
 pretrained_models/**
 tmp/**
+
+# Locally generated paper figures and experiment evidence (not source code).
+论文实验图素材_整理_*/
