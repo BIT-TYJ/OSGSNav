@@ -9,7 +9,9 @@ plots.  Large experiment dumps and PLY files are deliberately not duplicated.
 from __future__ import annotations
 
 import csv
+import gzip
 import json
+import math
 import shutil
 from collections import defaultdict
 from pathlib import Path
@@ -234,6 +236,133 @@ def build_quantitative(records):
     axes[0].legend(frameon=False, fontsize=8)
     fig.tight_layout()
     save_figure(fig, difficulty_dir, "Figure_distance_stratified_results")
+
+    # Intrinsic viewpoint gap: minimum 3D angular difference between the goal
+    # image camera-to-object ray and any navigable view-point-to-object ray.
+    # This is task-defined and method-independent, unlike an agent's first
+    # detection view, so all methods are evaluated on exactly the same bins.
+    viewpoint_dir = OUT / "13_按可达观测视角差分层"
+    manifest_payload = load(MANIFEST)
+    dataset_root = ROOT / manifest_payload["source"]["dataset_root"]
+    content_root = dataset_root / manifest_payload["source"]["split"] / "content"
+    scene_cache = {}
+    gaps = {}
+    metadata = {}
+    for ep, episode in enumerate(manifest_payload["episodes"]):
+        scene_key = episode["scene_key"]
+        if scene_key not in scene_cache:
+            with gzip.open(content_root / f"{scene_key}.json.gz", "rt", encoding="utf-8") as handle:
+                scene_cache[scene_key] = json.load(handle)
+        scene = scene_cache[scene_key]
+        for goal in episode["goals"]:
+            target = int(goal["order"]) + 1
+            source = scene["goals"][goal["goal_key"]]
+            center = np.asarray(source["position"], dtype=float)
+            image_goal = source["image_goals"][int(goal["goal_image_id"])]
+            goal_ray = center - np.asarray(image_goal["position"], dtype=float)
+            goal_ray /= np.linalg.norm(goal_ray)
+            angles = []
+            for view in source["view_points"]:
+                ray = center - np.asarray(view["agent_state"]["position"], dtype=float)
+                norm = np.linalg.norm(ray)
+                if norm <= 1e-8:
+                    continue
+                cosine = float(np.clip(np.dot(goal_ray, ray / norm), -1.0, 1.0))
+                angles.append(math.degrees(math.acos(cosine)))
+            if not angles:
+                raise RuntimeError(f"no navigable viewpoint for episode {ep} target {target}")
+            gaps[(ep, target)] = min(angles)
+            metadata[(ep, target)] = {
+                "episode": ep, "target": target, "category": goal["object_category"],
+                "goal_key": goal["goal_key"], "min_viewpoint_gap_deg": min(angles),
+                "navigable_view_count": len(angles),
+            }
+
+    gap_values = np.asarray(list(gaps.values()), dtype=float)
+    low_threshold, high_threshold = np.quantile(gap_values, [1.0 / 3.0, 2.0 / 3.0])
+    def gap_bin(value):
+        if value <= low_threshold:
+            return "small"
+        if value <= high_threshold:
+            return "medium"
+        return "large"
+
+    gap_records = []
+    for record in records:
+        row = dict(record)
+        row.update(metadata[(record["episode"], record["target"])])
+        row["viewpoint_gap_bin"] = gap_bin(row["min_viewpoint_gap_deg"])
+        gap_records.append(row)
+    write_csv(viewpoint_dir / "all_target_viewpoint_gap_records.csv", gap_records,
+              ["method", "episode", "target", "category", "goal_key", "min_viewpoint_gap_deg",
+               "viewpoint_gap_bin", "navigable_view_count", "success", "spl", "steps"])
+
+    gap_bins = ["small", "medium", "large"]
+    gap_metrics = []
+    for method in METHODS:
+        for name in gap_bins:
+            subset = [r for r in gap_records if r["method"] == method and r["viewpoint_gap_bin"] == name]
+            gap_metrics.append({"method": method, "viewpoint_gap_bin": name, "n": len(subset),
+                                "sr": np.mean([r["success"] for r in subset]),
+                                "spl": np.mean([r["spl"] for r in subset]),
+                                "min_angle_deg": min(r["min_viewpoint_gap_deg"] for r in subset),
+                                "max_angle_deg": max(r["min_viewpoint_gap_deg"] for r in subset)})
+    write_csv(viewpoint_dir / "viewpoint_gap_metrics.csv", gap_metrics,
+              ["method", "viewpoint_gap_bin", "n", "sr", "spl", "min_angle_deg", "max_angle_deg"])
+    gap_target_metrics = []
+    for target in (1, 2):
+        for method in METHODS:
+            for name in gap_bins:
+                subset = [r for r in gap_records if r["target"] == target and r["method"] == method
+                          and r["viewpoint_gap_bin"] == name]
+                gap_target_metrics.append({"target": target, "method": method,
+                                           "viewpoint_gap_bin": name, "n": len(subset),
+                                           "sr": np.mean([r["success"] for r in subset]),
+                                           "spl": np.mean([r["spl"] for r in subset])})
+    write_csv(viewpoint_dir / "viewpoint_gap_metrics_by_target.csv", gap_target_metrics,
+              ["target", "method", "viewpoint_gap_bin", "n", "sr", "spl"])
+    with (viewpoint_dir / "viewpoint_gap_definition.json").open("w") as handle:
+        json.dump({
+            "definition": "minimum 3D angle between goal-image camera-to-object ray and any navigable viewpoint-to-object ray",
+            "unit": "degrees", "method_independent": True,
+            "binning": "tertiles over the 200 target occurrences",
+            "small_max_deg": float(low_threshold), "medium_max_deg": float(high_threshold),
+            "counts": {name: sum(gap_bin(value) == name for value in gap_values) for name in gap_bins},
+        }, handle, indent=2)
+
+    x = np.arange(3); width = .25
+    labels = [f"Small\n≤{low_threshold:.1f}°", f"Medium\n{low_threshold:.1f}–{high_threshold:.1f}°",
+              f"Large\n>{high_threshold:.1f}°"]
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.7))
+    for j, method in enumerate(METHODS):
+        vals = {r["viewpoint_gap_bin"]: r for r in gap_metrics if r["method"] == method}
+        axes[0].bar(x + (j - 1) * width, [vals[b]["sr"] for b in gap_bins], width,
+                    label=method, color=COLORS[method])
+        axes[1].bar(x + (j - 1) * width, [vals[b]["spl"] for b in gap_bins], width,
+                    label=method, color=COLORS[method])
+    for ax, title, ylabel in zip(axes, ["SR vs. intrinsic viewpoint gap", "SPL vs. intrinsic viewpoint gap"],
+                                 ["SR", "SPL"]):
+        ax.set_title(title); ax.set_ylabel(ylabel); ax.set_ylim(0, 1); ax.grid(axis="y", alpha=.25)
+        ax.set_xticks(x); ax.set_xticklabels(labels)
+    axes[0].legend(frameon=False, fontsize=8)
+    fig.tight_layout()
+    save_figure(fig, viewpoint_dir, "Figure_viewpoint_gap_stratified_results")
+
+    target2_metrics = [r for r in gap_target_metrics if r["target"] == 2]
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.7))
+    for j, method in enumerate(METHODS):
+        vals = {r["viewpoint_gap_bin"]: r for r in target2_metrics if r["method"] == method}
+        axes[0].bar(x + (j - 1) * width, [vals[b]["sr"] for b in gap_bins], width,
+                    label=method, color=COLORS[method])
+        axes[1].bar(x + (j - 1) * width, [vals[b]["spl"] for b in gap_bins], width,
+                    label=method, color=COLORS[method])
+    for ax, title, ylabel in zip(axes, ["Target 2 SR vs. viewpoint gap", "Target 2 SPL vs. viewpoint gap"],
+                                 ["Target 2 SR", "Target 2 SPL"]):
+        ax.set_title(title); ax.set_ylabel(ylabel); ax.set_ylim(0, 1); ax.grid(axis="y", alpha=.25)
+        ax.set_xticks(x); ax.set_xticklabels(labels)
+    axes[0].legend(frameon=False, fontsize=8)
+    fig.tight_layout()
+    save_figure(fig, viewpoint_dir, "Figure_viewpoint_gap_target2_results")
 
 
 def copy_case(ep: int, directory: Path, records) -> None:
