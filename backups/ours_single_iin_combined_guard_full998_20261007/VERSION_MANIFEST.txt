@@ -1,0 +1,16 @@
+variant=ours_single_iin_combined_guard_full998_20261007
+snapshot_source=/nas_ds925/tyj/IEVE/backups/ours_single_iin_component_ablation_20261005/source
+runtime_root_default=/nas_ds925/tyj/IEVE
+result_root=/nas_ds925/tyj/IEVE/results
+log_root=/nas_ds925/tyj/IEVE/logs
+runtime_cache_root=/nas_ds925/tyj/IEVE/.runtime_cache/combined_guard_full998_20261007
+episode_scope=official IDs 0..999 excluding 774 and 778 (998 total)
+excluded_episode_note=774 and 778 are historical resource/infrastructure-abnormal tasks and are intentionally not scheduled
+combined_profile=phase2_start:500; phase3_start:800; prevent_downstairs:1; stuck_recovery:1; collision_threshold:0.2
+combined_features=semantic_gaussian_mapping; gaussmi_frontier; fine_localization; secondary_exploration; cluster_recovery; sweep_turn_in_place_fix
+gaussian_capacity=500000
+gaussian_capacity_policy=budget-aware keyframe/clone/split growth plus hard priority prune preserving confirmed and semantic points
+batch_storage_profile=periodic_ply:0; final_ply:0; stage_visualizations:0; render_debug:0; per_frame_ply:0
+tmux_session=osgs_full998_guard_20261007
+copied_outputs=no
+copied_models=no

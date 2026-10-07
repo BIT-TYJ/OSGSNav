@@ -1,0 +1,2 @@
+"""Gaussian scene models."""
+
