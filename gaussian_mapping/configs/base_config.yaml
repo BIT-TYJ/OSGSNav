@@ -1,0 +1,85 @@
+Results:
+  save_results: True
+  save_dir: "results"
+  save_trj: True
+  save_trj_kf_intv: 5
+  use_gui: False
+  eval_rendering: False
+  use_wandb: False
+
+Dataset:
+  type: "habitat"
+  sensor_type: "rgbd"
+  pcd_downsample: 64
+  pcd_downsample_init: 8
+  buffer_phase2_pcd_downsample: 32
+  adaptive_pointsize: True
+  point_size: 0.05
+
+Training:
+  semantic_guided_optimization_enabled: True
+  monocular: False
+  alpha: 0.9
+  rgb_boundary_threshold: 0.01
+  init_itr_num: 100
+  mapping_itr_num: 20
+  window_size: 8
+  phase1_current_frame_iters: 4
+  phase1_recent_window_iters: 4
+  phase1_target_replay_iters: 4
+  phase1_other_replay_iters: 8
+  target_focus_window_size: 12
+  target_loss_weight: 2.0
+  protect_semantic_target_prune: True
+  target_prune_protect_threshold: 0.7
+  gaussian_update_every: 20
+  gaussian_th: 0.5
+  gaussian_extent: 1.0
+  gaussian_reset: 1000
+  kf_interval: 5
+  size_threshold: 20
+  max_gaussians: 1000000
+  cameras_extent: 6.0
+  prune_mode: "slam"
+  spherical_harmonics: False
+  lr:
+    cam_rot_delta: 0.003
+    cam_trans_delta: 0.001
+
+GauSS_MI:
+  # Original GauSS-MI reliability update parameters.
+  reli_touch_threshold: 5
+  reli_min_loss: 0.0001
+  reli_lambda_L: 1.7
+  reli_lambda_T: 10.0
+  loss_rgb_alpha: 0.95
+
+opt_params:
+  iterations: 30000
+  position_lr_init: 0.00016
+  position_lr_final: 0.0000016
+  position_lr_delay_mult: 0.01
+  position_lr_max_steps: 30000
+  feature_lr: 0.0025
+  opacity_lr: 0.05
+  scaling_lr: 0.001
+  rotation_lr: 0.001
+  percent_dense: 0.01
+  lambda_dssim: 0.2
+  densification_interval: 100
+  opacity_reset_interval: 3000
+  densify_from_iter: 500
+  densify_until_iter: 15000
+  densify_grad_threshold: 0.0002
+
+model_params:
+  sh_degree: 1
+  source_path: ""
+  model_path: ""
+  resolution: -1
+  white_background: False
+  data_device: "cuda"
+
+pipeline_params:
+  convert_SHs_python: False
+  compute_cov3D_python: False

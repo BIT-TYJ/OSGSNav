@@ -1,0 +1,19 @@
+{
+  "description": "SOIM candidate anchors recovered from the three budget-1000 run logs; paths are relative to runtime_3dgs_budget1000.",
+  "anchors": {
+    "minav/habitat_814_20260903_165452_wcojb4TFT35/NVSM/instance_semantic_20260903_165752.ply": {"xyz": [2.0451428890, 2.5688838959, -14.6450252533], "variant": "Continuous-Shared", "step": 271},
+    "minav/habitat_814_20260903_165452_wcojb4TFT35/NVSM/instance_semantic_20260903_170047.ply": {"xyz": [2.0451428890, 2.5688838959, -14.6450252533], "variant": "Continuous-Shared", "step": 271},
+    "minav/habitat_808_20260903_170303_wcojb4TFT35/NVSM/instance_semantic_20260903_171037.ply": {"xyz": [1.1812293530, 3.3745517731, -16.6282253265], "variant": "Continuous-Shared", "step": 747},
+    "minav/habitat_808_20260903_170303_wcojb4TFT35/NVSM/instance_semantic_20260903_171122.ply": {"xyz": [-0.6550818682, 3.0600843429, -17.4664096832], "variant": "Continuous-Shared", "step": 765},
+    "minav/habitat_808_20260903_170303_wcojb4TFT35/NVSM/instance_semantic_20260903_171226.ply": {"xyz": [-3.1688468456, 3.0772571564, -17.4604721069], "variant": "Continuous-Shared", "step": 807},
+    "minav/habitat_814_20260903_171426_wcojb4TFT35/NVSM/instance_semantic_20260903_171723.ply": {"xyz": [2.0402688980, 2.5634584427, -14.6493291855], "variant": "Continuous-Clear", "step": 271},
+    "minav/habitat_814_20260903_171426_wcojb4TFT35/NVSM/instance_semantic_20260903_172017.ply": {"xyz": [2.0402688980, 2.5634584427, -14.6493291855], "variant": "Continuous-Clear", "step": 271},
+    "minav/habitat_808_20260903_172238_wcojb4TFT35/NVSM/instance_semantic_20260903_172614.ply": {"xyz": [-2.3335766792, 2.4330916405, -16.2946205139], "variant": "Continuous-Clear", "step": 516},
+    "minav/habitat_814_20260903_203204_wcojb4TFT35/NVSM/instance_semantic_20260903_203835.ply": {"xyz": [0.9983184934, 2.7341668606, -14.7507839203], "variant": "Continuous-Clear", "step": 542},
+    "minav/habitat_808_20260903_204120_wcojb4TFT35/NVSM/instance_semantic_20260903_204517.ply": {"xyz": [-1.5862970352, 3.0388128757, -17.3143386841], "variant": "Continuous-Clear", "step": 728},
+    "minav/habitat_814_20260903_204946_wcojb4TFT35/NVSM/instance_semantic_20260903_205223.ply": {"xyz": [1.1754864454, 2.8900120258, -14.2570714951], "variant": "Independent-Reset", "step": 190},
+    "minav/habitat_808_20260903_205427_wcojb4TFT35/NVSM/instance_semantic_20260903_210300.ply": {"xyz": [-0.7219814062, 3.0490093231, -17.4688510895], "variant": "Independent-Reset", "step": 522},
+    "minav/habitat_808_20260903_205427_wcojb4TFT35/NVSM/instance_semantic_20260903_210441.ply": {"xyz": [-2.7845427990, 2.4496500492, -16.3393688202], "variant": "Independent-Reset", "step": 556},
+    "minav/habitat_808_20260903_205427_wcojb4TFT35/NVSM/instance_semantic_20260903_210609.ply": {"xyz": [0.5522119403, 3.1355297565, -18.1070842743], "variant": "Independent-Reset", "step": 602}
+  }
+}

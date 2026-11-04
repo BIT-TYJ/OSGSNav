@@ -1,0 +1,6210 @@
+{
+  "schema_version": "miin-v0.1",
+  "task": "SequentialOrderedMultiIIN",
+  "protocol": {
+    "num_goals": 5,
+    "goal_order": "fixed",
+    "goal_visibility": "current_goal_only",
+    "goal_category_source": "task_object_category",
+    "per_goal_step_budget": 1000,
+    "success_distance_m": 1.0,
+    "intermediate_stop_semantics": "declare_current_goal",
+    "preserve_simulator_pose_between_goals": true,
+    "policy_must_not_observe": [
+      "goal_object_id",
+      "view_points",
+      "oracle"
+    ]
+  },
+  "source": {
+    "benchmark": "Habitat 2023 InstanceImageNav",
+    "dataset": "HM3D InstanceImageNav v3",
+    "dataset_root": "data/tyj/datasets/instance_imagenav/hm3d/v3",
+    "scenes_root": "data/tyj/hm3d-v0.2",
+    "split": "val"
+  },
+  "generation": {
+    "seed": 20261026,
+    "selected_scenes": [
+      "CrMo8WxCyVb",
+      "GLAQ4DNUx5U",
+      "LT9Jq6dN3Ea",
+      "TEEsavR23oF",
+      "wcojb4TFT35"
+    ],
+    "selection": "20 source starts per scene without outcomes; round-robin scene order; all 100 are benchmark sequences; T1/T2 retained, T3 prefers same class as T2, T4/T5 prefer class change; additional physical objects uniform before image selection",
+    "same_floor_height_tolerance_m": 0.75,
+    "geodesic_connectivity": "pending navmesh validation",
+    "source_hashes": {
+      "data/tyj/datasets/instance_imagenav/hm3d/v3/val/content/CrMo8WxCyVb.json.gz": "6ac1d0e97ccf14f3de93b459b560e44519846a0bed5f1d34342778a2316dab20",
+      "data/tyj/datasets/instance_imagenav/hm3d/v3/val/content/GLAQ4DNUx5U.json.gz": "fa8f64824bb56128503d94d02d57bf65db804c73a0ea411820053c3c35aa1d6c",
+      "data/tyj/datasets/instance_imagenav/hm3d/v3/val/content/LT9Jq6dN3Ea.json.gz": "a77b80c06e9016f6a16d9cff6ec9deecd5a1d08fe98284dc772a597814453ad4",
+      "data/tyj/datasets/instance_imagenav/hm3d/v3/val/content/TEEsavR23oF.json.gz": "2985fadeaab7da49386a43bf52d024a9a99fb8af7b37a46d53eb829baf6ebda2",
+      "data/tyj/datasets/instance_imagenav/hm3d/v3/val/content/wcojb4TFT35.json.gz": "346c686c0f0c88a73ec1696c935564b18229a71df734e1c8a7021e442c94eae5"
+    }
+  },
+  "episodes": [
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        1.7757682800292969,
+        -2.899935483932495,
+        6.960244178771973
+      ],
+      "start_rotation": [
+        0.0,
+        0.9831483011430711,
+        0.0,
+        -0.182809786279327
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "145",
+          "goal_key": "CrMo8WxCyVb_497",
+          "goal_object_id": "497",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "137",
+          "goal_key": "CrMo8WxCyVb_411",
+          "goal_object_id": "411",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "136",
+          "goal_key": "CrMo8WxCyVb_392",
+          "goal_object_id": "392",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "141",
+          "goal_key": "CrMo8WxCyVb_425",
+          "goal_object_id": "425",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_000",
+      "base_k2_manifest_index": 43,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -7.26902961730957,
+        -1.5928866863250732,
+        1.97723388671875
+      ],
+      "start_rotation": [
+        0.0,
+        0.7544189142826607,
+        0.0,
+        -0.656393252381963
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "192",
+          "goal_key": "GLAQ4DNUx5U_161",
+          "goal_object_id": "161",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "196",
+          "goal_key": "GLAQ4DNUx5U_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "201",
+          "goal_key": "GLAQ4DNUx5U_405",
+          "goal_object_id": "405",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "202",
+          "goal_key": "GLAQ4DNUx5U_432",
+          "goal_object_id": "432",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "198",
+          "goal_key": "GLAQ4DNUx5U_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_001",
+      "base_k2_manifest_index": 61,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        1.319455623626709,
+        0.10602831840515137,
+        -3.087951421737671
+      ],
+      "start_rotation": [
+        0.0,
+        0.9992576649224773,
+        0.0,
+        0.03852426629642803
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "263",
+          "goal_key": "LT9Jq6dN3Ea_328",
+          "goal_object_id": "328",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "271",
+          "goal_key": "LT9Jq6dN3Ea_548",
+          "goal_object_id": "548",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "266",
+          "goal_key": "LT9Jq6dN3Ea_420",
+          "goal_object_id": "420",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "261",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "265",
+          "goal_key": "LT9Jq6dN3Ea_370",
+          "goal_object_id": "370",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_002",
+      "base_k2_manifest_index": 33,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -4.845734596252441,
+        3.1633780002593994,
+        -1.7793059349060059
+      ],
+      "start_rotation": [
+        0.0,
+        0.46970058921686864,
+        0.0,
+        0.8828257792392146
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "338",
+          "goal_key": "TEEsavR23oF_160",
+          "goal_object_id": "160",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "335",
+          "goal_key": "TEEsavR23oF_30",
+          "goal_object_id": "30",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "342",
+          "goal_key": "TEEsavR23oF_186",
+          "goal_object_id": "186",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "331",
+          "goal_key": "TEEsavR23oF_10",
+          "goal_object_id": "10",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_003",
+      "base_k2_manifest_index": 92,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -0.6048578023910522,
+        -0.005079984664916992,
+        -10.276620864868164
+      ],
+      "start_rotation": [
+        0.0,
+        0.3460330713905604,
+        0.0,
+        0.9382223156075619
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "822",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "819",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_004",
+      "base_k2_manifest_index": 9,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        1.5750250816345215,
+        0.10006451606750488,
+        3.1402220726013184
+      ],
+      "start_rotation": [
+        0.0,
+        0.9961368341158963,
+        0.0,
+        -0.08781462131991066
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "124",
+          "goal_key": "CrMo8WxCyVb_226",
+          "goal_object_id": "226",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "121",
+          "goal_key": "CrMo8WxCyVb_33",
+          "goal_object_id": "33",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "125",
+          "goal_key": "CrMo8WxCyVb_246",
+          "goal_object_id": "246",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "126",
+          "goal_key": "CrMo8WxCyVb_287",
+          "goal_object_id": "287",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "123",
+          "goal_key": "CrMo8WxCyVb_194",
+          "goal_object_id": "194",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_005",
+      "base_k2_manifest_index": 47,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -1.102412462234497,
+        1.207113265991211,
+        6.216498851776123
+      ],
+      "start_rotation": [
+        0.0,
+        0.5045773145010561,
+        0.0,
+        -0.8633665117960635
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "208",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "210",
+          "goal_key": "GLAQ4DNUx5U_618",
+          "goal_object_id": "618",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_006",
+      "base_k2_manifest_index": 66,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -9.200105667114258,
+        0.10602831840515137,
+        -2.2690587043762207
+      ],
+      "start_rotation": [
+        0.0,
+        0.1532972535176394,
+        0.0,
+        -0.9881801212653231
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "272",
+          "goal_key": "LT9Jq6dN3Ea_560",
+          "goal_object_id": "560",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "261",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "259",
+          "goal_key": "LT9Jq6dN3Ea_325",
+          "goal_object_id": "325",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "265",
+          "goal_key": "LT9Jq6dN3Ea_370",
+          "goal_object_id": "370",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "270",
+          "goal_key": "LT9Jq6dN3Ea_465",
+          "goal_object_id": "465",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_007",
+      "base_k2_manifest_index": 30,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -1.7835756540298462,
+        0.16337794065475464,
+        -6.647908687591553
+      ],
+      "start_rotation": [
+        0.0,
+        0.502265114373003,
+        0.0,
+        0.8647136837612055
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "356",
+          "goal_key": "TEEsavR23oF_445",
+          "goal_object_id": "445",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "352",
+          "goal_key": "TEEsavR23oF_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "343",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_008",
+      "base_k2_manifest_index": 89,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        0.4716193974018097,
+        0.19491982460021973,
+        -3.625192880630493
+      ],
+      "start_rotation": [
+        0.0,
+        0.6125830706352084,
+        0.0,
+        0.7904062130140042
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "827",
+          "goal_key": "wcojb4TFT35_427",
+          "goal_object_id": "427",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_009",
+      "base_k2_manifest_index": 14,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -1.042057991027832,
+        -2.899935483932495,
+        -0.18820719420909882
+      ],
+      "start_rotation": [
+        0.0,
+        0.8856076003425014,
+        0.0,
+        0.46443425607463146
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "138",
+          "goal_key": "CrMo8WxCyVb_411",
+          "goal_object_id": "411",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "145",
+          "goal_key": "CrMo8WxCyVb_497",
+          "goal_object_id": "497",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "134",
+          "goal_key": "CrMo8WxCyVb_391",
+          "goal_object_id": "391",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_010",
+      "base_k2_manifest_index": 44,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -2.89878249168396,
+        -1.5928866863250732,
+        7.376482009887695
+      ],
+      "start_rotation": [
+        0.0,
+        0.5034522008205841,
+        0.0,
+        0.8640230792570939
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "201",
+          "goal_key": "GLAQ4DNUx5U_405",
+          "goal_object_id": "405",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "195",
+          "goal_key": "GLAQ4DNUx5U_330",
+          "goal_object_id": "330",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "202",
+          "goal_key": "GLAQ4DNUx5U_432",
+          "goal_object_id": "432",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "193",
+          "goal_key": "GLAQ4DNUx5U_305",
+          "goal_object_id": "305",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_011",
+      "base_k2_manifest_index": 71,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        0.9760118722915649,
+        0.10602831840515137,
+        -1.972965121269226
+      ],
+      "start_rotation": [
+        0.0,
+        0.7671366882850649,
+        0.0,
+        -0.6414836720346225
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "260",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "270",
+          "goal_key": "LT9Jq6dN3Ea_465",
+          "goal_object_id": "465",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "254",
+          "goal_key": "LT9Jq6dN3Ea_302",
+          "goal_object_id": "302",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "271",
+          "goal_key": "LT9Jq6dN3Ea_548",
+          "goal_object_id": "548",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "255",
+          "goal_key": "LT9Jq6dN3Ea_303",
+          "goal_object_id": "303",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_012",
+      "base_k2_manifest_index": 29,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -3.4940438270568848,
+        0.16337794065475464,
+        -7.514840602874756
+      ],
+      "start_rotation": [
+        0.0,
+        0.5520470368860794,
+        0.0,
+        -0.8338129700750041
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "354",
+          "goal_key": "TEEsavR23oF_389",
+          "goal_object_id": "389",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "344",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "345",
+          "goal_key": "TEEsavR23oF_264",
+          "goal_object_id": "264",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "350",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_013",
+      "base_k2_manifest_index": 97,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.0869557857513428,
+        -0.005079984664916992,
+        -7.150537967681885
+      ],
+      "start_rotation": [
+        0.0,
+        0.5154435868256799,
+        0.0,
+        -0.8569235139732587
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "823",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_014",
+      "base_k2_manifest_index": 2,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -3.2803802490234375,
+        -2.899935483932495,
+        3.3164732456207275
+      ],
+      "start_rotation": [
+        0.0,
+        0.5324990914776622,
+        0.0,
+        -0.8464305745750589
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "130",
+          "goal_key": "CrMo8WxCyVb_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "145",
+          "goal_key": "CrMo8WxCyVb_497",
+          "goal_object_id": "497",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "129",
+          "goal_key": "CrMo8WxCyVb_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "143",
+          "goal_key": "CrMo8WxCyVb_470",
+          "goal_object_id": "470",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "141",
+          "goal_key": "CrMo8WxCyVb_425",
+          "goal_object_id": "425",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_015",
+      "base_k2_manifest_index": 55,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -3.756840705871582,
+        1.207113265991211,
+        -0.2824525237083435
+      ],
+      "start_rotation": [
+        0.0,
+        0.06066476441130894,
+        0.0,
+        0.9981581970604261
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "205",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "210",
+          "goal_key": "GLAQ4DNUx5U_618",
+          "goal_object_id": "618",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "207",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_016",
+      "base_k2_manifest_index": 75,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        1.5662567615509033,
+        0.10602831840515137,
+        -4.534953594207764
+      ],
+      "start_rotation": [
+        0.0,
+        0.3363266142996707,
+        0.0,
+        -0.9417454053584337
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "262",
+          "goal_key": "LT9Jq6dN3Ea_327",
+          "goal_object_id": "327",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "271",
+          "goal_key": "LT9Jq6dN3Ea_548",
+          "goal_object_id": "548",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "272",
+          "goal_key": "LT9Jq6dN3Ea_560",
+          "goal_object_id": "560",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "257",
+          "goal_key": "LT9Jq6dN3Ea_305",
+          "goal_object_id": "305",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "244",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_017",
+      "base_k2_manifest_index": 35,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -5.450830459594727,
+        0.16337794065475464,
+        -4.858705520629883
+      ],
+      "start_rotation": [
+        0.0,
+        0.9833609795133816,
+        0.0,
+        -0.18166227998812126
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "356",
+          "goal_key": "TEEsavR23oF_445",
+          "goal_object_id": "445",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "347",
+          "goal_key": "TEEsavR23oF_275",
+          "goal_object_id": "275",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "352",
+          "goal_key": "TEEsavR23oF_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "345",
+          "goal_key": "TEEsavR23oF_264",
+          "goal_object_id": "264",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_018",
+      "base_k2_manifest_index": 80,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.9697136878967285,
+        -0.005079984664916992,
+        -5.810800552368164
+      ],
+      "start_rotation": [
+        0.0,
+        0.945463270608986,
+        0.0,
+        -0.3257287275162557
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "817",
+          "goal_key": "wcojb4TFT35_348",
+          "goal_object_id": "348",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "822",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "827",
+          "goal_key": "wcojb4TFT35_427",
+          "goal_object_id": "427",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "820",
+          "goal_key": "wcojb4TFT35_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_019",
+      "base_k2_manifest_index": 13,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -7.032872676849365,
+        -2.899935483932495,
+        7.014782428741455
+      ],
+      "start_rotation": [
+        0.0,
+        0.29652101579287427,
+        0.0,
+        -0.95502632801047
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "135",
+          "goal_key": "CrMo8WxCyVb_392",
+          "goal_object_id": "392",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "138",
+          "goal_key": "CrMo8WxCyVb_411",
+          "goal_object_id": "411",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "146",
+          "goal_key": "CrMo8WxCyVb_516",
+          "goal_object_id": "516",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "140",
+          "goal_key": "CrMo8WxCyVb_413",
+          "goal_object_id": "413",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_020",
+      "base_k2_manifest_index": 52,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        1.860411524772644,
+        1.207113265991211,
+        0.3461610972881317
+      ],
+      "start_rotation": [
+        0.0,
+        0.7517293524207945,
+        0.0,
+        0.6594717436774779
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "205",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_021",
+      "base_k2_manifest_index": 78,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        0.40663790702819824,
+        3.306028127670288,
+        3.264101505279541
+      ],
+      "start_rotation": [
+        0.0,
+        0.2192388146631261,
+        0.0,
+        -0.9756712264616126
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "285",
+          "goal_key": "LT9Jq6dN3Ea_994",
+          "goal_object_id": "994",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "282",
+          "goal_key": "LT9Jq6dN3Ea_897",
+          "goal_object_id": "897",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "280",
+          "goal_key": "LT9Jq6dN3Ea_768",
+          "goal_object_id": "768",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "283",
+          "goal_key": "LT9Jq6dN3Ea_898",
+          "goal_object_id": "898",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "278",
+          "goal_key": "LT9Jq6dN3Ea_764",
+          "goal_object_id": "764",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_022",
+      "base_k2_manifest_index": 31,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -5.450830459594727,
+        0.16337794065475464,
+        -4.858705520629883
+      ],
+      "start_rotation": [
+        0.0,
+        0.9833609795133816,
+        0.0,
+        -0.18166227998812126
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "356",
+          "goal_key": "TEEsavR23oF_445",
+          "goal_object_id": "445",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "351",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "344",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_023",
+      "base_k2_manifest_index": 87,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.0869557857513428,
+        -0.005079984664916992,
+        -7.150537967681885
+      ],
+      "start_rotation": [
+        0.0,
+        0.5154435868256799,
+        0.0,
+        -0.8569235139732587
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "823",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_024",
+      "base_k2_manifest_index": 17,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -7.032872676849365,
+        -2.899935483932495,
+        7.014782428741455
+      ],
+      "start_rotation": [
+        0.0,
+        0.29652101579287427,
+        0.0,
+        -0.95502632801047
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "144",
+          "goal_key": "CrMo8WxCyVb_472",
+          "goal_object_id": "472",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "146",
+          "goal_key": "CrMo8WxCyVb_516",
+          "goal_object_id": "516",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "143",
+          "goal_key": "CrMo8WxCyVb_470",
+          "goal_object_id": "470",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_025",
+      "base_k2_manifest_index": 48,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -2.149806022644043,
+        -1.5928866863250732,
+        7.22184944152832
+      ],
+      "start_rotation": [
+        0.0,
+        0.7854630620956015,
+        0.0,
+        -0.6189085377367171
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "200",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "197",
+          "goal_key": "GLAQ4DNUx5U_331",
+          "goal_object_id": "331",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "195",
+          "goal_key": "GLAQ4DNUx5U_330",
+          "goal_object_id": "330",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "194",
+          "goal_key": "GLAQ4DNUx5U_305",
+          "goal_object_id": "305",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_026",
+      "base_k2_manifest_index": 67,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -6.048780918121338,
+        0.10602831840515137,
+        -2.3155386447906494
+      ],
+      "start_rotation": [
+        0.0,
+        0.9276129166289819,
+        0.0,
+        -0.3735428715730944
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "265",
+          "goal_key": "LT9Jq6dN3Ea_370",
+          "goal_object_id": "370",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "244",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "269",
+          "goal_key": "LT9Jq6dN3Ea_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "261",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "254",
+          "goal_key": "LT9Jq6dN3Ea_302",
+          "goal_object_id": "302",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_027",
+      "base_k2_manifest_index": 27,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -3.6722302436828613,
+        3.1633780002593994,
+        -1.1889030933380127
+      ],
+      "start_rotation": [
+        0.0,
+        0.5958883258507862,
+        0.0,
+        0.8030673092056153
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "332",
+          "goal_key": "TEEsavR23oF_16",
+          "goal_object_id": "16",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "341",
+          "goal_key": "TEEsavR23oF_184",
+          "goal_object_id": "184",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "357",
+          "goal_key": "TEEsavR23oF_642",
+          "goal_object_id": "642",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "337",
+          "goal_key": "TEEsavR23oF_132",
+          "goal_object_id": "132",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "339",
+          "goal_key": "TEEsavR23oF_160",
+          "goal_object_id": "160",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_028",
+      "base_k2_manifest_index": 81,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.0869557857513428,
+        -0.005079984664916992,
+        -7.150537967681885
+      ],
+      "start_rotation": [
+        0.0,
+        0.5154435868256799,
+        0.0,
+        -0.8569235139732587
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "817",
+          "goal_key": "wcojb4TFT35_348",
+          "goal_object_id": "348",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_029",
+      "base_k2_manifest_index": 4,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -4.177611827850342,
+        0.10006451606750488,
+        6.526058197021484
+      ],
+      "start_rotation": [
+        0.0,
+        0.17867208232015283,
+        0.0,
+        0.9839086781807449
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "122",
+          "goal_key": "CrMo8WxCyVb_122",
+          "goal_object_id": "122",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "128",
+          "goal_key": "CrMo8WxCyVb_290",
+          "goal_object_id": "290",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "127",
+          "goal_key": "CrMo8WxCyVb_288",
+          "goal_object_id": "288",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "124",
+          "goal_key": "CrMo8WxCyVb_226",
+          "goal_object_id": "226",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "126",
+          "goal_key": "CrMo8WxCyVb_287",
+          "goal_object_id": "287",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_030",
+      "base_k2_manifest_index": 41,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -1.102412462234497,
+        1.207113265991211,
+        6.216498851776123
+      ],
+      "start_rotation": [
+        0.0,
+        0.5045773145010561,
+        0.0,
+        -0.8633665117960635
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "208",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "210",
+          "goal_key": "GLAQ4DNUx5U_618",
+          "goal_object_id": "618",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "205",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_031",
+      "base_k2_manifest_index": 62,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -4.593763828277588,
+        3.481904983520508,
+        0.8202993869781494
+      ],
+      "start_rotation": [
+        0.0,
+        0.023463976708857925,
+        0.0,
+        0.9997246829987775
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "281",
+          "goal_key": "LT9Jq6dN3Ea_853",
+          "goal_object_id": "853",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "278",
+          "goal_key": "LT9Jq6dN3Ea_764",
+          "goal_object_id": "764",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "284",
+          "goal_key": "LT9Jq6dN3Ea_898",
+          "goal_object_id": "898",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "276",
+          "goal_key": "LT9Jq6dN3Ea_686",
+          "goal_object_id": "686",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "277",
+          "goal_key": "LT9Jq6dN3Ea_702",
+          "goal_object_id": "702",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_032",
+      "base_k2_manifest_index": 25,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -1.7835756540298462,
+        0.16337794065475464,
+        -6.647908687591553
+      ],
+      "start_rotation": [
+        0.0,
+        0.502265114373003,
+        0.0,
+        0.8647136837612055
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "355",
+          "goal_key": "TEEsavR23oF_389",
+          "goal_object_id": "389",
+          "goal_image_id": 1,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "348",
+          "goal_key": "TEEsavR23oF_275",
+          "goal_object_id": "275",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "350",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_033",
+      "base_k2_manifest_index": 95,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.9697136878967285,
+        -0.005079984664916992,
+        -5.810800552368164
+      ],
+      "start_rotation": [
+        0.0,
+        0.945463270608986,
+        0.0,
+        -0.3257287275162557
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "817",
+          "goal_key": "wcojb4TFT35_348",
+          "goal_object_id": "348",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "820",
+          "goal_key": "wcojb4TFT35_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_034",
+      "base_k2_manifest_index": 0,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -3.2803802490234375,
+        -2.899935483932495,
+        3.3164732456207275
+      ],
+      "start_rotation": [
+        0.0,
+        0.5324990914776622,
+        0.0,
+        -0.8464305745750589
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "130",
+          "goal_key": "CrMo8WxCyVb_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "146",
+          "goal_key": "CrMo8WxCyVb_516",
+          "goal_object_id": "516",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "144",
+          "goal_key": "CrMo8WxCyVb_472",
+          "goal_object_id": "472",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "134",
+          "goal_key": "CrMo8WxCyVb_391",
+          "goal_object_id": "391",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_035",
+      "base_k2_manifest_index": 40,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -4.2903923988342285,
+        -1.5928866863250732,
+        2.4884033203125
+      ],
+      "start_rotation": [
+        0.0,
+        0.6555621278260821,
+        0.0,
+        0.7551412427884863
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "199",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "192",
+          "goal_key": "GLAQ4DNUx5U_161",
+          "goal_object_id": "161",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "202",
+          "goal_key": "GLAQ4DNUx5U_432",
+          "goal_object_id": "432",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "196",
+          "goal_key": "GLAQ4DNUx5U_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_036",
+      "base_k2_manifest_index": 72,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -5.189573764801025,
+        0.10602831840515137,
+        6.723651885986328
+      ],
+      "start_rotation": [
+        0.0,
+        0.17120694058498576,
+        0.0,
+        -0.9852350904710657
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "248",
+          "goal_key": "LT9Jq6dN3Ea_249",
+          "goal_object_id": "249",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "261",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "258",
+          "goal_key": "LT9Jq6dN3Ea_325",
+          "goal_object_id": "325",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "245",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 1,
+          "object_category": "toilet"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "266",
+          "goal_key": "LT9Jq6dN3Ea_420",
+          "goal_object_id": "420",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_037",
+      "base_k2_manifest_index": 23,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -10.86581039428711,
+        0.16337794065475464,
+        -2.514805793762207
+      ],
+      "start_rotation": [
+        0.0,
+        0.00877958046020852,
+        0.0,
+        0.999961458740757
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "355",
+          "goal_key": "TEEsavR23oF_389",
+          "goal_object_id": "389",
+          "goal_image_id": 1,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "344",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "351",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_038",
+      "base_k2_manifest_index": 90,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.0869557857513428,
+        -0.005079984664916992,
+        -7.150537967681885
+      ],
+      "start_rotation": [
+        0.0,
+        0.5154435868256799,
+        0.0,
+        -0.8569235139732587
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "821",
+          "goal_key": "wcojb4TFT35_413",
+          "goal_object_id": "413",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "823",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_039",
+      "base_k2_manifest_index": 18,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -4.901022911071777,
+        -2.899935483932495,
+        9.259295463562012
+      ],
+      "start_rotation": [
+        0.0,
+        0.9471559417255337,
+        0.0,
+        -0.32077347467335476
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "139",
+          "goal_key": "CrMo8WxCyVb_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "144",
+          "goal_key": "CrMo8WxCyVb_472",
+          "goal_object_id": "472",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "146",
+          "goal_key": "CrMo8WxCyVb_516",
+          "goal_object_id": "516",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "134",
+          "goal_key": "CrMo8WxCyVb_391",
+          "goal_object_id": "391",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_040",
+      "base_k2_manifest_index": 46,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -2.89878249168396,
+        -1.5928866863250732,
+        7.376482009887695
+      ],
+      "start_rotation": [
+        0.0,
+        0.5034522008205841,
+        0.0,
+        0.8640230792570939
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "196",
+          "goal_key": "GLAQ4DNUx5U_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "195",
+          "goal_key": "GLAQ4DNUx5U_330",
+          "goal_object_id": "330",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "192",
+          "goal_key": "GLAQ4DNUx5U_161",
+          "goal_object_id": "161",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "199",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_041",
+      "base_k2_manifest_index": 76,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -10.816335678100586,
+        3.306028127670288,
+        -2.7287774085998535
+      ],
+      "start_rotation": [
+        0.0,
+        0.8801556010437745,
+        0.0,
+        -0.4746852830573873
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "276",
+          "goal_key": "LT9Jq6dN3Ea_686",
+          "goal_object_id": "686",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "284",
+          "goal_key": "LT9Jq6dN3Ea_898",
+          "goal_object_id": "898",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "281",
+          "goal_key": "LT9Jq6dN3Ea_853",
+          "goal_object_id": "853",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "279",
+          "goal_key": "LT9Jq6dN3Ea_765",
+          "goal_object_id": "765",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "277",
+          "goal_key": "LT9Jq6dN3Ea_702",
+          "goal_object_id": "702",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_042",
+      "base_k2_manifest_index": 20,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -2.1954469680786133,
+        0.16337794065475464,
+        -1.1267173290252686
+      ],
+      "start_rotation": [
+        0.0,
+        0.8813887247162606,
+        0.0,
+        0.4723916975805605
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "351",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "356",
+          "goal_key": "TEEsavR23oF_445",
+          "goal_object_id": "445",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "346",
+          "goal_key": "TEEsavR23oF_266",
+          "goal_object_id": "266",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "343",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_043",
+      "base_k2_manifest_index": 82,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -1.178995132446289,
+        -0.005079984664916992,
+        -9.246950149536133
+      ],
+      "start_rotation": [
+        0.0,
+        0.8534252532718103,
+        0.0,
+        0.521215250235396
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "819",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "822",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "821",
+          "goal_key": "wcojb4TFT35_413",
+          "goal_object_id": "413",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "820",
+          "goal_key": "wcojb4TFT35_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_044",
+      "base_k2_manifest_index": 8,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -0.9754734635353088,
+        0.10006451606750488,
+        10.159581184387207
+      ],
+      "start_rotation": [
+        0.0,
+        0.9330191158959765,
+        0.0,
+        -0.3598268046889924
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "121",
+          "goal_key": "CrMo8WxCyVb_33",
+          "goal_object_id": "33",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "126",
+          "goal_key": "CrMo8WxCyVb_287",
+          "goal_object_id": "287",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "127",
+          "goal_key": "CrMo8WxCyVb_288",
+          "goal_object_id": "288",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "124",
+          "goal_key": "CrMo8WxCyVb_226",
+          "goal_object_id": "226",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "125",
+          "goal_key": "CrMo8WxCyVb_246",
+          "goal_object_id": "246",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_045",
+      "base_k2_manifest_index": 49,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -3.252058744430542,
+        -1.5928866863250732,
+        7.045687675476074
+      ],
+      "start_rotation": [
+        0.0,
+        0.7405504797441413,
+        0.0,
+        -0.6720007343379336
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "197",
+          "goal_key": "GLAQ4DNUx5U_331",
+          "goal_object_id": "331",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "200",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "201",
+          "goal_key": "GLAQ4DNUx5U_405",
+          "goal_object_id": "405",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "202",
+          "goal_key": "GLAQ4DNUx5U_432",
+          "goal_object_id": "432",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_046",
+      "base_k2_manifest_index": 77,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -9.991804122924805,
+        0.10602831840515137,
+        3.5628509521484375
+      ],
+      "start_rotation": [
+        0.0,
+        0.9353043128591754,
+        0.0,
+        -0.35384437588723355
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "244",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "249",
+          "goal_key": "LT9Jq6dN3Ea_283",
+          "goal_object_id": "283",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "251",
+          "goal_key": "LT9Jq6dN3Ea_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "271",
+          "goal_key": "LT9Jq6dN3Ea_548",
+          "goal_object_id": "548",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "264",
+          "goal_key": "LT9Jq6dN3Ea_354",
+          "goal_object_id": "354",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_047",
+      "base_k2_manifest_index": 22,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        1.3097052574157715,
+        0.16337794065475464,
+        -5.454156398773193
+      ],
+      "start_rotation": [
+        0.0,
+        0.6873046467317604,
+        0.0,
+        0.7263692742544456
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "352",
+          "goal_key": "TEEsavR23oF_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "344",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "350",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "345",
+          "goal_key": "TEEsavR23oF_264",
+          "goal_object_id": "264",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_048",
+      "base_k2_manifest_index": 86,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -1.0618867874145508,
+        -0.005079984664916992,
+        -9.400415420532227
+      ],
+      "start_rotation": [
+        0.0,
+        0.8158486666633077,
+        0.0,
+        0.578265469402854
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "823",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_049",
+      "base_k2_manifest_index": 5,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -1.5368090867996216,
+        -2.899935483932495,
+        4.017736434936523
+      ],
+      "start_rotation": [
+        0.0,
+        0.9959585207372136,
+        0.0,
+        0.0898143917807239
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "129",
+          "goal_key": "CrMo8WxCyVb_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "137",
+          "goal_key": "CrMo8WxCyVb_411",
+          "goal_object_id": "411",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "131",
+          "goal_key": "CrMo8WxCyVb_331",
+          "goal_object_id": "331",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "145",
+          "goal_key": "CrMo8WxCyVb_497",
+          "goal_object_id": "497",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_050",
+      "base_k2_manifest_index": 45,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -4.2903923988342285,
+        -1.5928866863250732,
+        2.4884033203125
+      ],
+      "start_rotation": [
+        0.0,
+        0.6555621278260821,
+        0.0,
+        0.7551412427884863
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "199",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "194",
+          "goal_key": "GLAQ4DNUx5U_305",
+          "goal_object_id": "305",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "196",
+          "goal_key": "GLAQ4DNUx5U_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "202",
+          "goal_key": "GLAQ4DNUx5U_432",
+          "goal_object_id": "432",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_051",
+      "base_k2_manifest_index": 64,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -2.4218766689300537,
+        0.10602831840515137,
+        4.181332588195801
+      ],
+      "start_rotation": [
+        0.0,
+        0.8605888361533008,
+        0.0,
+        -0.5093003584215381
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "261",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "266",
+          "goal_key": "LT9Jq6dN3Ea_420",
+          "goal_object_id": "420",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "269",
+          "goal_key": "LT9Jq6dN3Ea_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "258",
+          "goal_key": "LT9Jq6dN3Ea_325",
+          "goal_object_id": "325",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "245",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 1,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_052",
+      "base_k2_manifest_index": 28,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -5.052066326141357,
+        0.16337794065475464,
+        -7.554121017456055
+      ],
+      "start_rotation": [
+        0.0,
+        0.8564697866930606,
+        0.0,
+        0.5161971566000177
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "347",
+          "goal_key": "TEEsavR23oF_275",
+          "goal_object_id": "275",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "356",
+          "goal_key": "TEEsavR23oF_445",
+          "goal_object_id": "445",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "346",
+          "goal_key": "TEEsavR23oF_266",
+          "goal_object_id": "266",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "344",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_053",
+      "base_k2_manifest_index": 91,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -0.6048578023910522,
+        -0.005079984664916992,
+        -10.276620864868164
+      ],
+      "start_rotation": [
+        0.0,
+        0.3460330713905604,
+        0.0,
+        0.9382223156075619
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "822",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "817",
+          "goal_key": "wcojb4TFT35_348",
+          "goal_object_id": "348",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "819",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_054",
+      "base_k2_manifest_index": 1,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -1.6777435541152954,
+        -2.899935483932495,
+        9.27197551727295
+      ],
+      "start_rotation": [
+        0.0,
+        0.7761574975685758,
+        0.0,
+        0.6305390859955362
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "146",
+          "goal_key": "CrMo8WxCyVb_516",
+          "goal_object_id": "516",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "131",
+          "goal_key": "CrMo8WxCyVb_331",
+          "goal_object_id": "331",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "139",
+          "goal_key": "CrMo8WxCyVb_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "141",
+          "goal_key": "CrMo8WxCyVb_425",
+          "goal_object_id": "425",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_055",
+      "base_k2_manifest_index": 50,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -1.5170972347259521,
+        1.207113265991211,
+        2.8587803840637207
+      ],
+      "start_rotation": [
+        0.0,
+        0.5626866642423417,
+        0.0,
+        0.826670259464937
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "206",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "207",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_056",
+      "base_k2_manifest_index": 63,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -7.365777492523193,
+        0.10602831840515137,
+        -2.321648120880127
+      ],
+      "start_rotation": [
+        0.0,
+        0.8269421539483459,
+        0.0,
+        -0.5622870032494706
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "249",
+          "goal_key": "LT9Jq6dN3Ea_283",
+          "goal_object_id": "283",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "266",
+          "goal_key": "LT9Jq6dN3Ea_420",
+          "goal_object_id": "420",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "269",
+          "goal_key": "LT9Jq6dN3Ea_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "247",
+          "goal_key": "LT9Jq6dN3Ea_248",
+          "goal_object_id": "248",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "272",
+          "goal_key": "LT9Jq6dN3Ea_560",
+          "goal_object_id": "560",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_057",
+      "base_k2_manifest_index": 32,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -4.845734596252441,
+        3.1633780002593994,
+        -1.7793059349060059
+      ],
+      "start_rotation": [
+        0.0,
+        0.46970058921686864,
+        0.0,
+        0.8828257792392146
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "342",
+          "goal_key": "TEEsavR23oF_186",
+          "goal_object_id": "186",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "337",
+          "goal_key": "TEEsavR23oF_132",
+          "goal_object_id": "132",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "331",
+          "goal_key": "TEEsavR23oF_10",
+          "goal_object_id": "10",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "340",
+          "goal_key": "TEEsavR23oF_174",
+          "goal_object_id": "174",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_058",
+      "base_k2_manifest_index": 96,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        0.46461135149002075,
+        2.794919967651367,
+        -7.497347831726074
+      ],
+      "start_rotation": [
+        0.0,
+        0.9896639462919123,
+        0.0,
+        0.1434059741081897
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "809",
+          "goal_key": "wcojb4TFT35_164",
+          "goal_object_id": "164",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "813",
+          "goal_key": "wcojb4TFT35_228",
+          "goal_object_id": "228",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "814",
+          "goal_key": "wcojb4TFT35_270",
+          "goal_object_id": "270",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "810",
+          "goal_key": "wcojb4TFT35_199",
+          "goal_object_id": "199",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "811",
+          "goal_key": "wcojb4TFT35_208",
+          "goal_object_id": "208",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_059",
+      "base_k2_manifest_index": 12,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -0.23506440222263336,
+        -2.899935483932495,
+        2.5254063606262207
+      ],
+      "start_rotation": [
+        0.0,
+        0.9805250533370763,
+        0.0,
+        -0.19639404211514083
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "143",
+          "goal_key": "CrMo8WxCyVb_470",
+          "goal_object_id": "470",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "138",
+          "goal_key": "CrMo8WxCyVb_411",
+          "goal_object_id": "411",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "132",
+          "goal_key": "CrMo8WxCyVb_336",
+          "goal_object_id": "336",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_060",
+      "base_k2_manifest_index": 54,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        1.4037827253341675,
+        1.207113265991211,
+        3.121309280395508
+      ],
+      "start_rotation": [
+        0.0,
+        0.2620438595784042,
+        0.0,
+        0.9650559650389472
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "206",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_061",
+      "base_k2_manifest_index": 70,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -5.189573764801025,
+        0.10602831840515137,
+        6.723651885986328
+      ],
+      "start_rotation": [
+        0.0,
+        0.17120694058498576,
+        0.0,
+        -0.9852350904710657
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "248",
+          "goal_key": "LT9Jq6dN3Ea_249",
+          "goal_object_id": "249",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "267",
+          "goal_key": "LT9Jq6dN3Ea_439",
+          "goal_object_id": "439",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "271",
+          "goal_key": "LT9Jq6dN3Ea_548",
+          "goal_object_id": "548",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "254",
+          "goal_key": "LT9Jq6dN3Ea_302",
+          "goal_object_id": "302",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "266",
+          "goal_key": "LT9Jq6dN3Ea_420",
+          "goal_object_id": "420",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_062",
+      "base_k2_manifest_index": 38,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -3.6722302436828613,
+        3.1633780002593994,
+        -1.1889030933380127
+      ],
+      "start_rotation": [
+        0.0,
+        0.5958883258507862,
+        0.0,
+        0.8030673092056153
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "332",
+          "goal_key": "TEEsavR23oF_16",
+          "goal_object_id": "16",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "338",
+          "goal_key": "TEEsavR23oF_160",
+          "goal_object_id": "160",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "357",
+          "goal_key": "TEEsavR23oF_642",
+          "goal_object_id": "642",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "341",
+          "goal_key": "TEEsavR23oF_184",
+          "goal_object_id": "184",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_063",
+      "base_k2_manifest_index": 84,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -1.0618867874145508,
+        -0.005079984664916992,
+        -9.400415420532227
+      ],
+      "start_rotation": [
+        0.0,
+        0.8158486666633077,
+        0.0,
+        0.578265469402854
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "827",
+          "goal_key": "wcojb4TFT35_427",
+          "goal_object_id": "427",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "822",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_064",
+      "base_k2_manifest_index": 16,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -5.210110664367676,
+        -2.899935483932495,
+        9.395319938659668
+      ],
+      "start_rotation": [
+        0.0,
+        0.9071365658025569,
+        0.0,
+        -0.4208363707950435
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "140",
+          "goal_key": "CrMo8WxCyVb_413",
+          "goal_object_id": "413",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "135",
+          "goal_key": "CrMo8WxCyVb_392",
+          "goal_object_id": "392",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "129",
+          "goal_key": "CrMo8WxCyVb_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_065",
+      "base_k2_manifest_index": 53,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -4.985245704650879,
+        1.207113265991211,
+        0.5170871019363403
+      ],
+      "start_rotation": [
+        0.0,
+        0.9831833417098589,
+        0.0,
+        -0.18262123804266278
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "208",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "206",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_066",
+      "base_k2_manifest_index": 68,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        1.33833646774292,
+        3.306028127670288,
+        -5.060926914215088
+      ],
+      "start_rotation": [
+        0.0,
+        0.9230139699996861,
+        0.0,
+        -0.38476643718679343
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "273",
+          "goal_key": "LT9Jq6dN3Ea_592",
+          "goal_object_id": "592",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "282",
+          "goal_key": "LT9Jq6dN3Ea_897",
+          "goal_object_id": "897",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "279",
+          "goal_key": "LT9Jq6dN3Ea_765",
+          "goal_object_id": "765",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "277",
+          "goal_key": "LT9Jq6dN3Ea_702",
+          "goal_object_id": "702",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "280",
+          "goal_key": "LT9Jq6dN3Ea_768",
+          "goal_object_id": "768",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_067",
+      "base_k2_manifest_index": 21,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -2.69494891166687,
+        0.16337794065475464,
+        -7.194023132324219
+      ],
+      "start_rotation": [
+        0.0,
+        0.9984090419039374,
+        0.0,
+        0.05638603589951825
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "350",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "356",
+          "goal_key": "TEEsavR23oF_445",
+          "goal_object_id": "445",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "345",
+          "goal_key": "TEEsavR23oF_264",
+          "goal_object_id": "264",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "349",
+          "goal_key": "TEEsavR23oF_279",
+          "goal_object_id": "279",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "346",
+          "goal_key": "TEEsavR23oF_266",
+          "goal_object_id": "266",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_068",
+      "base_k2_manifest_index": 85,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.2260732650756836,
+        0.19491982460021973,
+        0.46729719638824463
+      ],
+      "start_rotation": [
+        0.0,
+        0.6838149015985312,
+        0.0,
+        0.7296555217030781
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_069",
+      "base_k2_manifest_index": 7,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -1.9339052438735962,
+        0.10006451606750488,
+        1.5537835359573364
+      ],
+      "start_rotation": [
+        0.0,
+        0.7800223532575794,
+        0.0,
+        -0.6257516507517243
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "125",
+          "goal_key": "CrMo8WxCyVb_246",
+          "goal_object_id": "246",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "122",
+          "goal_key": "CrMo8WxCyVb_122",
+          "goal_object_id": "122",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "123",
+          "goal_key": "CrMo8WxCyVb_194",
+          "goal_object_id": "194",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "126",
+          "goal_key": "CrMo8WxCyVb_287",
+          "goal_object_id": "287",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "121",
+          "goal_key": "CrMo8WxCyVb_33",
+          "goal_object_id": "33",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_070",
+      "base_k2_manifest_index": 58,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -1.5170972347259521,
+        1.207113265991211,
+        2.8587803840637207
+      ],
+      "start_rotation": [
+        0.0,
+        0.5626866642423417,
+        0.0,
+        0.826670259464937
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "207",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "205",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_071",
+      "base_k2_manifest_index": 73,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -9.991804122924805,
+        0.10602831840515137,
+        3.5628509521484375
+      ],
+      "start_rotation": [
+        0.0,
+        0.9353043128591754,
+        0.0,
+        -0.35384437588723355
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "244",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "262",
+          "goal_key": "LT9Jq6dN3Ea_327",
+          "goal_object_id": "327",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "255",
+          "goal_key": "LT9Jq6dN3Ea_303",
+          "goal_object_id": "303",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "272",
+          "goal_key": "LT9Jq6dN3Ea_560",
+          "goal_object_id": "560",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "256",
+          "goal_key": "LT9Jq6dN3Ea_304",
+          "goal_object_id": "304",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_072",
+      "base_k2_manifest_index": 37,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -4.720017433166504,
+        3.1633780002593994,
+        -0.4336239993572235
+      ],
+      "start_rotation": [
+        0.0,
+        0.9243586467209123,
+        0.0,
+        0.3815246941316953
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "333",
+          "goal_key": "TEEsavR23oF_16",
+          "goal_object_id": "16",
+          "goal_image_id": 1,
+          "object_category": "bed"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "334",
+          "goal_key": "TEEsavR23oF_30",
+          "goal_object_id": "30",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "331",
+          "goal_key": "TEEsavR23oF_10",
+          "goal_object_id": "10",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "338",
+          "goal_key": "TEEsavR23oF_160",
+          "goal_object_id": "160",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_073",
+      "base_k2_manifest_index": 98,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        0.4716193974018097,
+        0.19491982460021973,
+        -3.625192880630493
+      ],
+      "start_rotation": [
+        0.0,
+        0.6125830706352084,
+        0.0,
+        0.7904062130140042
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "827",
+          "goal_key": "wcojb4TFT35_427",
+          "goal_object_id": "427",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "819",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_074",
+      "base_k2_manifest_index": 11,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -4.901022911071777,
+        -2.899935483932495,
+        9.259295463562012
+      ],
+      "start_rotation": [
+        0.0,
+        0.9471559417255337,
+        0.0,
+        -0.32077347467335476
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "139",
+          "goal_key": "CrMo8WxCyVb_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "143",
+          "goal_key": "CrMo8WxCyVb_470",
+          "goal_object_id": "470",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "129",
+          "goal_key": "CrMo8WxCyVb_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_075",
+      "base_k2_manifest_index": 57,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -9.132600784301758,
+        1.207113265991211,
+        1.8285235166549683
+      ],
+      "start_rotation": [
+        0.0,
+        0.9951299765737752,
+        0.0,
+        -0.09857144477117881
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "210",
+          "goal_key": "GLAQ4DNUx5U_618",
+          "goal_object_id": "618",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "206",
+          "goal_key": "GLAQ4DNUx5U_534",
+          "goal_object_id": "534",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "207",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_076",
+      "base_k2_manifest_index": 65,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -9.991804122924805,
+        0.10602831840515137,
+        3.5628509521484375
+      ],
+      "start_rotation": [
+        0.0,
+        0.9353043128591754,
+        0.0,
+        -0.35384437588723355
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "244",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "267",
+          "goal_key": "LT9Jq6dN3Ea_439",
+          "goal_object_id": "439",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "269",
+          "goal_key": "LT9Jq6dN3Ea_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "250",
+          "goal_key": "LT9Jq6dN3Ea_283",
+          "goal_object_id": "283",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "265",
+          "goal_key": "LT9Jq6dN3Ea_370",
+          "goal_object_id": "370",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_077",
+      "base_k2_manifest_index": 26,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -3.240748405456543,
+        0.16337794065475464,
+        -7.2513885498046875
+      ],
+      "start_rotation": [
+        0.0,
+        0.8375897510047473,
+        0.0,
+        -0.5462997428260472
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "344",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "355",
+          "goal_key": "TEEsavR23oF_389",
+          "goal_object_id": "389",
+          "goal_image_id": 1,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "348",
+          "goal_key": "TEEsavR23oF_275",
+          "goal_object_id": "275",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "352",
+          "goal_key": "TEEsavR23oF_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "351",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 1,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_078",
+      "base_k2_manifest_index": 93,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -0.3874106705188751,
+        -0.005079984664916992,
+        -10.518339157104492
+      ],
+      "start_rotation": [
+        0.0,
+        0.36264834492397946,
+        0.0,
+        0.931926058184821
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "817",
+          "goal_key": "wcojb4TFT35_348",
+          "goal_object_id": "348",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "820",
+          "goal_key": "wcojb4TFT35_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "823",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_079",
+      "base_k2_manifest_index": 6,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -0.23506440222263336,
+        -2.899935483932495,
+        2.5254063606262207
+      ],
+      "start_rotation": [
+        0.0,
+        0.9805250533370763,
+        0.0,
+        -0.19639404211514083
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "143",
+          "goal_key": "CrMo8WxCyVb_470",
+          "goal_object_id": "470",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "129",
+          "goal_key": "CrMo8WxCyVb_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "144",
+          "goal_key": "CrMo8WxCyVb_472",
+          "goal_object_id": "472",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "146",
+          "goal_key": "CrMo8WxCyVb_516",
+          "goal_object_id": "516",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_080",
+      "base_k2_manifest_index": 42,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        1.860411524772644,
+        1.207113265991211,
+        0.3461610972881317
+      ],
+      "start_rotation": [
+        0.0,
+        0.7517293524207945,
+        0.0,
+        0.6594717436774779
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "207",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "210",
+          "goal_key": "GLAQ4DNUx5U_618",
+          "goal_object_id": "618",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_081",
+      "base_k2_manifest_index": 60,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        2.7523255348205566,
+        -3.0939717292785645,
+        -2.7198116779327393
+      ],
+      "start_rotation": [
+        0.0,
+        0.2330990700203134,
+        0.0,
+        -0.9724529929799512
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "235",
+          "goal_key": "LT9Jq6dN3Ea_54",
+          "goal_object_id": "54",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "230",
+          "goal_key": "LT9Jq6dN3Ea_26",
+          "goal_object_id": "26",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "239",
+          "goal_key": "LT9Jq6dN3Ea_57",
+          "goal_object_id": "57",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "228",
+          "goal_key": "LT9Jq6dN3Ea_21",
+          "goal_object_id": "21",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "243",
+          "goal_key": "LT9Jq6dN3Ea_123",
+          "goal_object_id": "123",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_082",
+      "base_k2_manifest_index": 36,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -1.9242911338806152,
+        0.16337794065475464,
+        -1.4042341709136963
+      ],
+      "start_rotation": [
+        0.0,
+        0.6679007833134857,
+        0.0,
+        -0.7442503232442914
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "353",
+          "goal_key": "TEEsavR23oF_319",
+          "goal_object_id": "319",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "343",
+          "goal_key": "TEEsavR23oF_262",
+          "goal_object_id": "262",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "350",
+          "goal_key": "TEEsavR23oF_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "348",
+          "goal_key": "TEEsavR23oF_275",
+          "goal_object_id": "275",
+          "goal_image_id": 1,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "345",
+          "goal_key": "TEEsavR23oF_264",
+          "goal_object_id": "264",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_083",
+      "base_k2_manifest_index": 88,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -2.0869557857513428,
+        -0.005079984664916992,
+        -7.150537967681885
+      ],
+      "start_rotation": [
+        0.0,
+        0.5154435868256799,
+        0.0,
+        -0.8569235139732587
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "818",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_084",
+      "base_k2_manifest_index": 10,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        0.6145609021186829,
+        -2.899935483932495,
+        7.184521675109863
+      ],
+      "start_rotation": [
+        0.0,
+        0.422112239901328,
+        0.0,
+        0.9065435769589257
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "144",
+          "goal_key": "CrMo8WxCyVb_472",
+          "goal_object_id": "472",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "130",
+          "goal_key": "CrMo8WxCyVb_331",
+          "goal_object_id": "331",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "139",
+          "goal_key": "CrMo8WxCyVb_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "129",
+          "goal_key": "CrMo8WxCyVb_318",
+          "goal_object_id": "318",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "138",
+          "goal_key": "CrMo8WxCyVb_411",
+          "goal_object_id": "411",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_085",
+      "base_k2_manifest_index": 51,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -2.89878249168396,
+        -1.5928866863250732,
+        7.376482009887695
+      ],
+      "start_rotation": [
+        0.0,
+        0.5034522008205841,
+        0.0,
+        0.8640230792570939
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "191",
+          "goal_key": "GLAQ4DNUx5U_22",
+          "goal_object_id": "22",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "192",
+          "goal_key": "GLAQ4DNUx5U_161",
+          "goal_object_id": "161",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "195",
+          "goal_key": "GLAQ4DNUx5U_330",
+          "goal_object_id": "330",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "200",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "201",
+          "goal_key": "GLAQ4DNUx5U_405",
+          "goal_object_id": "405",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_086",
+      "base_k2_manifest_index": 79,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -9.702707290649414,
+        0.10602831840515137,
+        4.70833683013916
+      ],
+      "start_rotation": [
+        0.0,
+        0.7082460050670571,
+        0.0,
+        0.7059657189315598
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "246",
+          "goal_key": "LT9Jq6dN3Ea_248",
+          "goal_object_id": "248",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "264",
+          "goal_key": "LT9Jq6dN3Ea_354",
+          "goal_object_id": "354",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "268",
+          "goal_key": "LT9Jq6dN3Ea_439",
+          "goal_object_id": "439",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "249",
+          "goal_key": "LT9Jq6dN3Ea_283",
+          "goal_object_id": "283",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "260",
+          "goal_key": "LT9Jq6dN3Ea_326",
+          "goal_object_id": "326",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_087",
+      "base_k2_manifest_index": 24,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -3.373751163482666,
+        3.1633780002593994,
+        -5.3664374351501465
+      ],
+      "start_rotation": [
+        0.0,
+        0.3047380858323233,
+        0.0,
+        -0.9524361915862141
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "339",
+          "goal_key": "TEEsavR23oF_160",
+          "goal_object_id": "160",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "337",
+          "goal_key": "TEEsavR23oF_132",
+          "goal_object_id": "132",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "334",
+          "goal_key": "TEEsavR23oF_30",
+          "goal_object_id": "30",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "331",
+          "goal_key": "TEEsavR23oF_10",
+          "goal_object_id": "10",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_088",
+      "base_k2_manifest_index": 94,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -1.178995132446289,
+        -0.005079984664916992,
+        -9.246950149536133
+      ],
+      "start_rotation": [
+        0.0,
+        0.8534252532718103,
+        0.0,
+        0.521215250235396
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "819",
+          "goal_key": "wcojb4TFT35_349",
+          "goal_object_id": "349",
+          "goal_image_id": 1,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "825",
+          "goal_key": "wcojb4TFT35_416",
+          "goal_object_id": "416",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "828",
+          "goal_key": "wcojb4TFT35_428",
+          "goal_object_id": "428",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_089",
+      "base_k2_manifest_index": 19,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        -7.237798690795898,
+        -2.899935483932495,
+        8.966715812683105
+      ],
+      "start_rotation": [
+        0.0,
+        0.9274942759310465,
+        0.0,
+        0.37383735516283517
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "141",
+          "goal_key": "CrMo8WxCyVb_425",
+          "goal_object_id": "425",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "142",
+          "goal_key": "CrMo8WxCyVb_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "133",
+          "goal_key": "CrMo8WxCyVb_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "144",
+          "goal_key": "CrMo8WxCyVb_472",
+          "goal_object_id": "472",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "136",
+          "goal_key": "CrMo8WxCyVb_392",
+          "goal_object_id": "392",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_090",
+      "base_k2_manifest_index": 59,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -1.5170972347259521,
+        1.207113265991211,
+        2.8587803840637207
+      ],
+      "start_rotation": [
+        0.0,
+        0.5626866642423417,
+        0.0,
+        0.826670259464937
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "203",
+          "goal_key": "GLAQ4DNUx5U_480",
+          "goal_object_id": "480",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "211",
+          "goal_key": "GLAQ4DNUx5U_802",
+          "goal_object_id": "802",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "207",
+          "goal_key": "GLAQ4DNUx5U_556",
+          "goal_object_id": "556",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "209",
+          "goal_key": "GLAQ4DNUx5U_603",
+          "goal_object_id": "603",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "204",
+          "goal_key": "GLAQ4DNUx5U_490",
+          "goal_object_id": "490",
+          "goal_image_id": 0,
+          "object_category": "bed"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_091",
+      "base_k2_manifest_index": 69,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        -4.343753337860107,
+        0.10602831840515137,
+        -2.5206964015960693
+      ],
+      "start_rotation": [
+        0.0,
+        0.6388663794945035,
+        0.0,
+        -0.7693177166500099
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "264",
+          "goal_key": "LT9Jq6dN3Ea_354",
+          "goal_object_id": "354",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "271",
+          "goal_key": "LT9Jq6dN3Ea_548",
+          "goal_object_id": "548",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "269",
+          "goal_key": "LT9Jq6dN3Ea_443",
+          "goal_object_id": "443",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "257",
+          "goal_key": "LT9Jq6dN3Ea_305",
+          "goal_object_id": "305",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "266",
+          "goal_key": "LT9Jq6dN3Ea_420",
+          "goal_object_id": "420",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_092",
+      "base_k2_manifest_index": 34,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -3.0447921752929688,
+        3.1633780002593994,
+        -5.311811447143555
+      ],
+      "start_rotation": [
+        0.0,
+        0.8024046245236062,
+        0.0,
+        0.5967803771431587
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "341",
+          "goal_key": "TEEsavR23oF_184",
+          "goal_object_id": "184",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "333",
+          "goal_key": "TEEsavR23oF_16",
+          "goal_object_id": "16",
+          "goal_image_id": 1,
+          "object_category": "bed"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "340",
+          "goal_key": "TEEsavR23oF_174",
+          "goal_object_id": "174",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "331",
+          "goal_key": "TEEsavR23oF_10",
+          "goal_object_id": "10",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_093",
+      "base_k2_manifest_index": 83,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        -1.0618867874145508,
+        -0.005079984664916992,
+        -9.400415420532227
+      ],
+      "start_rotation": [
+        0.0,
+        0.8158486666633077,
+        0.0,
+        0.578265469402854
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "826",
+          "goal_key": "wcojb4TFT35_421",
+          "goal_object_id": "421",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "820",
+          "goal_key": "wcojb4TFT35_412",
+          "goal_object_id": "412",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_094",
+      "base_k2_manifest_index": 3,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00810-CrMo8WxCyVb/CrMo8WxCyVb.basis.glb",
+      "scene_key": "CrMo8WxCyVb",
+      "start_position": [
+        1.7757682800292969,
+        -2.899935483932495,
+        6.960244178771973
+      ],
+      "start_rotation": [
+        0.0,
+        0.9831483011430711,
+        0.0,
+        -0.182809786279327
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "145",
+          "goal_key": "CrMo8WxCyVb_497",
+          "goal_object_id": "497",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "134",
+          "goal_key": "CrMo8WxCyVb_391",
+          "goal_object_id": "391",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "131",
+          "goal_key": "CrMo8WxCyVb_331",
+          "goal_object_id": "331",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "132",
+          "goal_key": "CrMo8WxCyVb_336",
+          "goal_object_id": "336",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "135",
+          "goal_key": "CrMo8WxCyVb_392",
+          "goal_object_id": "392",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_095",
+      "base_k2_manifest_index": 56,
+      "same_category_transitions": [
+        2
+      ]
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00861-GLAQ4DNUx5U/GLAQ4DNUx5U.basis.glb",
+      "scene_key": "GLAQ4DNUx5U",
+      "start_position": [
+        -10.375064849853516,
+        -1.5928866863250732,
+        5.73436975479126
+      ],
+      "start_rotation": [
+        0.0,
+        0.7313209145470727,
+        0.0,
+        0.6820335181983603
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "198",
+          "goal_key": "GLAQ4DNUx5U_337",
+          "goal_object_id": "337",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "199",
+          "goal_key": "GLAQ4DNUx5U_398",
+          "goal_object_id": "398",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "201",
+          "goal_key": "GLAQ4DNUx5U_405",
+          "goal_object_id": "405",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "202",
+          "goal_key": "GLAQ4DNUx5U_432",
+          "goal_object_id": "432",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "195",
+          "goal_key": "GLAQ4DNUx5U_330",
+          "goal_object_id": "330",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_096",
+      "base_k2_manifest_index": 74,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00862-LT9Jq6dN3Ea/LT9Jq6dN3Ea.basis.glb",
+      "scene_key": "LT9Jq6dN3Ea",
+      "start_position": [
+        2.480424165725708,
+        0.10602831840515137,
+        -4.546126365661621
+      ],
+      "start_rotation": [
+        0.0,
+        0.9165907383557174,
+        0.0,
+        0.39982673542488484
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "250",
+          "goal_key": "LT9Jq6dN3Ea_283",
+          "goal_object_id": "283",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "264",
+          "goal_key": "LT9Jq6dN3Ea_354",
+          "goal_object_id": "354",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "254",
+          "goal_key": "LT9Jq6dN3Ea_302",
+          "goal_object_id": "302",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "244",
+          "goal_key": "LT9Jq6dN3Ea_220",
+          "goal_object_id": "220",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "251",
+          "goal_key": "LT9Jq6dN3Ea_284",
+          "goal_object_id": "284",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_097",
+      "base_k2_manifest_index": 39,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",
+      "scene_key": "TEEsavR23oF",
+      "start_position": [
+        -4.588619232177734,
+        3.1633780002593994,
+        -0.8849769830703735
+      ],
+      "start_rotation": [
+        0.0,
+        0.9399708498006336,
+        0.0,
+        -0.3412547457912851
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "335",
+          "goal_key": "TEEsavR23oF_30",
+          "goal_object_id": "30",
+          "goal_image_id": 1,
+          "object_category": "chair"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "341",
+          "goal_key": "TEEsavR23oF_184",
+          "goal_object_id": "184",
+          "goal_image_id": 0,
+          "object_category": "plant"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "336",
+          "goal_key": "TEEsavR23oF_51",
+          "goal_object_id": "51",
+          "goal_image_id": 0,
+          "object_category": "toilet"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "342",
+          "goal_key": "TEEsavR23oF_186",
+          "goal_object_id": "186",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "331",
+          "goal_key": "TEEsavR23oF_10",
+          "goal_object_id": "10",
+          "goal_image_id": 0,
+          "object_category": "tv_monitor"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_098",
+      "base_k2_manifest_index": 99,
+      "same_category_transitions": []
+    },
+    {
+      "scene_id": "hm3d_v0.2/val/00802-wcojb4TFT35/wcojb4TFT35.basis.glb",
+      "scene_key": "wcojb4TFT35",
+      "start_position": [
+        1.9812746047973633,
+        0.19491982460021973,
+        -4.668496608734131
+      ],
+      "start_rotation": [
+        0.0,
+        0.5051866965316085,
+        0.0,
+        0.8630100820080148
+      ],
+      "goals": [
+        {
+          "order": 0,
+          "source_episode_id": "815",
+          "goal_key": "wcojb4TFT35_340",
+          "goal_object_id": "340",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 1,
+          "source_episode_id": "827",
+          "goal_key": "wcojb4TFT35_427",
+          "goal_object_id": "427",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 2,
+          "source_episode_id": "822",
+          "goal_key": "wcojb4TFT35_414",
+          "goal_object_id": "414",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        },
+        {
+          "order": 3,
+          "source_episode_id": "816",
+          "goal_key": "wcojb4TFT35_344",
+          "goal_object_id": "344",
+          "goal_image_id": 0,
+          "object_category": "sofa"
+        },
+        {
+          "order": 4,
+          "source_episode_id": "824",
+          "goal_key": "wcojb4TFT35_415",
+          "goal_object_id": "415",
+          "goal_image_id": 0,
+          "object_category": "chair"
+        }
+      ],
+      "episode_id": "bench100_k5_20261026_099",
+      "base_k2_manifest_index": 15,
+      "same_category_transitions": [
+        2
+      ]
+    }
+  ]
+}
