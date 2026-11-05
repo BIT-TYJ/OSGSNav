@@ -1,0 +1,23 @@
+{
+  "passed": [
+    "test_retarget_preserves_scene_memory_and_resets_goal_state",
+    "test_translation_stabilization_changes_only_old_explored_overlap"
+  ],
+  "runner": "Direct execution of existing CPU assertion tests; pytest is not installed in this environment",
+  "simulation_executed": false,
+  "hardware_executed": false,
+  "dependency_preflight": {
+    "2": {
+      "backend": "habitat",
+      "upstream_commit": "6e581d269e246d60cb1276b9af812f4d864eb2a4",
+      "checked_source_files": 30,
+      "executed": false
+    },
+    "5": {
+      "backend": "habitat",
+      "upstream_commit": "6e581d269e246d60cb1276b9af812f4d864eb2a4",
+      "checked_source_files": 30,
+      "executed": false
+    }
+  }
+}

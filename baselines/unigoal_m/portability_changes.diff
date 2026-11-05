@@ -1,0 +1,103 @@
+--- baselines/unigoal_multi_iin/main_unigoal_multi.py
++++ baselines/unigoal_m/k2/main.py
+@@ -9,21 +9,30 @@
+ import numpy as np
+ import torch
+ import argparse
+-ROOT = "/code1/tyj/UniGoal"
++from pathlib import Path
++_REPO = Path(__file__).resolve().parents[3]
++_boot = argparse.ArgumentParser(add_help=False)
++_boot.add_argument('--unigoal_root', default=os.environ.get('UNIGOAL_ROOT', str(_REPO / 'external/UniGoal')))
++_boot_args, _ = _boot.parse_known_args()
++ROOT = str(Path(_boot_args.unigoal_root).expanduser().resolve())
++if not (Path(ROOT) / 'src_unigoal').is_dir():
++    raise RuntimeError('Set UNIGOAL_ROOT or --unigoal_root to the pinned UniGoal checkout; see baselines/unigoal_m/README.md')
++if str(_REPO) not in sys.path:
++    sys.path.insert(0, str(_REPO))
+ sys.path.insert(0, ROOT)
+-from multi_env import make_multi_env
+-from multi_agent import SequentialUniGoalAgent
+-from multi_state import (retarget_graph_preserving_memory,
++from baselines.unigoal_m.k2.env import make_multi_env
++from baselines.unigoal_m.k2.agent import SequentialUniGoalAgent
++from baselines.unigoal_m.k2.state import (retarget_graph_preserving_memory,
+                          save_terminal_global_maps)
+ from src_unigoal.map.bev_mapping import BEV_Map
+ from src_unigoal.graph.graph import Graph
+ import gzip
+-sys.path.append("/code1/tyj/UniGoal/third_party/Grounded-Segment-Anything/segment-anything")
++sys.path.append(str(Path(ROOT) / "third_party/Grounded-Segment-Anything/segment-anything"))
+ os.environ["TOKENIZERS_PARALLELISM"] = "false"
+ def get_config():
+ 
+     parser = argparse.ArgumentParser()
+-    parser.add_argument("--config-file", default="configs/config_habitat_unigoal.yaml",
++    parser.add_argument("--config-file", default=str(_REPO / "baselines/unigoal_m/configs/k2.yaml"),
+                         metavar="FILE", help="path to config file", type=str)
+     parser.add_argument("--goal_type", default="ins-image", type=str)
+     parser.add_argument("--episode_id", default=-1, type=int, help="episode id, 0~999")
+@@ -39,7 +48,7 @@
+     parser.add_argument("--multi_episode_start", default=0, type=int)
+     parser.add_argument("--multi_num_episodes", default=1, type=int)
+     parser.add_argument("--multi_goal_step_budget", default=1000, type=int)
+-    parser.add_argument("--assets_root", default="/nas_ds925/tyj/IEVE")
++    parser.add_argument("--assets_root", default=str(_REPO))
+     parser.add_argument("--unigoal_root", default=ROOT)
+ 
+     args = parser.parse_args()
+--- five_goal_benchmark_20261026/runtime/unigoal_main.py
++++ baselines/unigoal_m/k5/main.py
+@@ -1,6 +1,3 @@
+-from pathlib import Path
+-import sys
+-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+ import os
+ import sys
+ import json
+@@ -12,21 +9,30 @@
+ import numpy as np
+ import torch
+ import argparse
+-ROOT = "/code1/tyj/UniGoal"
++from pathlib import Path
++_REPO = Path(__file__).resolve().parents[3]
++_boot = argparse.ArgumentParser(add_help=False)
++_boot.add_argument('--unigoal_root', default=os.environ.get('UNIGOAL_ROOT', str(_REPO / 'external/UniGoal')))
++_boot_args, _ = _boot.parse_known_args()
++ROOT = str(Path(_boot_args.unigoal_root).expanduser().resolve())
++if not (Path(ROOT) / 'src_unigoal').is_dir():
++    raise RuntimeError('Set UNIGOAL_ROOT or --unigoal_root to the pinned UniGoal checkout; see baselines/unigoal_m/README.md')
++if str(_REPO) not in sys.path:
++    sys.path.insert(0, str(_REPO))
+ sys.path.insert(0, ROOT)
+-from five_goal_benchmark_20261026.runtime.unigoal_env import make_multi_env
+-from five_goal_benchmark_20261026.runtime.unigoal_agent import SequentialUniGoalAgent
+-from five_goal_benchmark_20261026.runtime.unigoal_state import (retarget_graph_preserving_memory,
++from baselines.unigoal_m.k5.env import make_multi_env
++from baselines.unigoal_m.k5.agent import SequentialUniGoalAgent
++from baselines.unigoal_m.k5.state import (retarget_graph_preserving_memory,
+                          save_terminal_global_maps)
+ from src_unigoal.map.bev_mapping import BEV_Map
+ from src_unigoal.graph.graph import Graph
+ import gzip
+-sys.path.append("/code1/tyj/UniGoal/third_party/Grounded-Segment-Anything/segment-anything")
++sys.path.append(str(Path(ROOT) / "third_party/Grounded-Segment-Anything/segment-anything"))
+ os.environ["TOKENIZERS_PARALLELISM"] = "false"
+ def get_config():
+ 
+     parser = argparse.ArgumentParser()
+-    parser.add_argument("--config-file", default="configs/config_habitat_unigoal.yaml",
++    parser.add_argument("--config-file", default=str(_REPO / "baselines/unigoal_m/configs/k5.yaml"),
+                         metavar="FILE", help="path to config file", type=str)
+     parser.add_argument("--goal_type", default="ins-image", type=str)
+     parser.add_argument("--episode_id", default=-1, type=int, help="episode id, 0~999")
+@@ -42,7 +48,7 @@
+     parser.add_argument("--multi_episode_start", default=0, type=int)
+     parser.add_argument("--multi_num_episodes", default=1, type=int)
+     parser.add_argument("--multi_goal_step_budget", default=1000, type=int)
+-    parser.add_argument("--assets_root", default="/nas_ds925/tyj/IEVE")
++    parser.add_argument("--assets_root", default=str(_REPO))
+     parser.add_argument("--unigoal_root", default=ROOT)
+ 
+     args = parser.parse_args()

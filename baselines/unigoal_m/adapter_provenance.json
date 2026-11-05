@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-05",
+  "changes": "Packaging only: namespaced imports, dependency/config/output paths. Effective turn_angle remains 15. No algorithm or hardware backend changes.",
+  "files": [
+    {
+      "original": "baselines/unigoal_multi_iin/main_unigoal_multi.py",
+      "published": "baselines/unigoal_m/k2/main.py",
+      "original_sha256": "139f0ff468b71ab3b4b70abb3f0ea89b7852ae2f0d712efa9441f29907fb985a",
+      "published_sha256": "ffef89c27cca762c1fd88774084f5bf7c8732b082b5ae8fffae546cac828ec67"
+    },
+    {
+      "original": "baselines/unigoal_multi_iin/multi_env.py",
+      "published": "baselines/unigoal_m/k2/env.py",
+      "original_sha256": "ba3b46ebffad15959c974334bf21cd1356cf732dcf879934420570080727ba87",
+      "published_sha256": "ba3b46ebffad15959c974334bf21cd1356cf732dcf879934420570080727ba87"
+    },
+    {
+      "original": "baselines/unigoal_multi_iin/multi_agent.py",
+      "published": "baselines/unigoal_m/k2/agent.py",
+      "original_sha256": "5768da55bc582c903e3e44ec5161ad324353cd5eb8a98c6c20d7e1da7ad46331",
+      "published_sha256": "5768da55bc582c903e3e44ec5161ad324353cd5eb8a98c6c20d7e1da7ad46331"
+    },
+    {
+      "original": "baselines/unigoal_multi_iin/multi_state.py",
+      "published": "baselines/unigoal_m/k2/state.py",
+      "original_sha256": "cefeef7403fc5017e630a059be06e1163eff54b33f75620cb74a59ffd9763bda",
+      "published_sha256": "cefeef7403fc5017e630a059be06e1163eff54b33f75620cb74a59ffd9763bda"
+    },
+    {
+      "original": "five_goal_benchmark_20261026/runtime/unigoal_main.py",
+      "published": "baselines/unigoal_m/k5/main.py",
+      "original_sha256": "ef2ce2af5b39dac37e70a872a3c6887977c7dc4b6e24669ce49826b645f7b1e2",
+      "published_sha256": "5ae02026161725c8dfce096bc87d9e59224e3488ab61271781d1685d64176258"
+    },
+    {
+      "original": "five_goal_benchmark_20261026/runtime/unigoal_env.py",
+      "published": "baselines/unigoal_m/k5/env.py",
+      "original_sha256": "72ae002c74c0bcfd36b61e8d8408ff9a62351753ebc0014d728f1e98d1764927",
+      "published_sha256": "72ae002c74c0bcfd36b61e8d8408ff9a62351753ebc0014d728f1e98d1764927"
+    },
+    {
+      "original": "five_goal_benchmark_20261026/runtime/unigoal_agent.py",
+      "published": "baselines/unigoal_m/k5/agent.py",
+      "original_sha256": "5768da55bc582c903e3e44ec5161ad324353cd5eb8a98c6c20d7e1da7ad46331",
+      "published_sha256": "5768da55bc582c903e3e44ec5161ad324353cd5eb8a98c6c20d7e1da7ad46331"
+    },
+    {
+      "original": "five_goal_benchmark_20261026/runtime/unigoal_state.py",
+      "published": "baselines/unigoal_m/k5/state.py",
+      "original_sha256": "cefeef7403fc5017e630a059be06e1163eff54b33f75620cb74a59ffd9763bda",
+      "published_sha256": "cefeef7403fc5017e630a059be06e1163eff54b33f75620cb74a59ffd9763bda"
+    }
+  ],
+  "configs": [
+    {
+      "original": "baselines/unigoal_multi_iin/config_habitat_unigoal_multi.yaml",
+      "original_sha256": "57038a3a83e811490591a4125350ff873c076361aa1027d0d3b179b23b0c3a3e",
+      "published": "baselines/unigoal_m/configs/k2.yaml",
+      "published_sha256": "10cb83f7eba66e0415b78f2ab402f6961418c16da8140412f597aeab28093d86",
+      "changes": "Output path made relative; duplicate turn_angle collapsed to its original effective value 15; commented dynamic-obstacle examples omitted"
+    },
+    {
+      "original": "five_goal_benchmark_20261026/configs/unigoal.yaml",
+      "original_sha256": "b6370f6331dec0a8a6162a81909e5a9ac0859d2e58910faad441331cf7886183",
+      "published": "baselines/unigoal_m/configs/k5.yaml",
+      "published_sha256": "2dd7e1a8f2eeabdea31416b3435d1b2d19e19aa67039d96f038837aef6f9a4dc",
+      "changes": "Output path made relative; duplicate turn_angle collapsed to its original effective value 15; commented dynamic-obstacle examples omitted"
+    }
+  ]
+}

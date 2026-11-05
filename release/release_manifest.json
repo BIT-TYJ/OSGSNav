@@ -4667,13 +4667,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 4823,
-      "sha256": "79e467bb98c36940fa64f471e2a1ba5200265795c25801fee78894344d7e9013"
+      "bytes": 5458,
+      "sha256": "7e91adc29eedeff154a898868fb5bab20cd8fef2d7f8d92e632b826d218729e8"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "bytes": 2378,
-      "sha256": "87c16de992ae0dd27a44c84255c3de158f2b2a7172985fbf935e162683767e2b"
+      "bytes": 2742,
+      "sha256": "b33d59a4d841cfdf29e7ebea9c9931c2c587dc3f95122e966f7948a7abcdc58d"
     },
     {
       "path": "agents/cur_exp.py",
@@ -4736,6 +4736,116 @@
       "sha256": "7f4b49fd4f94d10f696691cadf05cc507e08648c2d6a3def82aaacb598439bec"
     },
     {
+      "path": "baselines/__init__.py",
+      "bytes": 37,
+      "sha256": "3ec24656a3e00e02089526b4434a895b2cc78bf1242f902daa1a322099211b04"
+    },
+    {
+      "path": "baselines/unigoal_m/README.md",
+      "bytes": 4195,
+      "sha256": "e8e4f94933ff4d6745239cf471d9f136ab8bb83855084fddb6663ae0c039c72c"
+    },
+    {
+      "path": "baselines/unigoal_m/__init__.py",
+      "bytes": 62,
+      "sha256": "f58dcfc14cc13400a32efc54015d2eb087485c2438145b63424d27fdc88fc2d2"
+    },
+    {
+      "path": "baselines/unigoal_m/adapter_provenance.json",
+      "bytes": 3782,
+      "sha256": "2a0fd909a613bfaba86bd7db5438d47ff70575005a7c9442f3fd87ea18ebdebe"
+    },
+    {
+      "path": "baselines/unigoal_m/configs/k2.yaml",
+      "bytes": 1544,
+      "sha256": "10cb83f7eba66e0415b78f2ab402f6961418c16da8140412f597aeab28093d86"
+    },
+    {
+      "path": "baselines/unigoal_m/configs/k5.yaml",
+      "bytes": 1542,
+      "sha256": "2dd7e1a8f2eeabdea31416b3435d1b2d19e19aa67039d96f038837aef6f9a4dc"
+    },
+    {
+      "path": "baselines/unigoal_m/k2/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "baselines/unigoal_m/k2/agent.py",
+      "bytes": 2854,
+      "sha256": "5768da55bc582c903e3e44ec5161ad324353cd5eb8a98c6c20d7e1da7ad46331"
+    },
+    {
+      "path": "baselines/unigoal_m/k2/env.py",
+      "bytes": 7541,
+      "sha256": "ba3b46ebffad15959c974334bf21cd1356cf732dcf879934420570080727ba87"
+    },
+    {
+      "path": "baselines/unigoal_m/k2/main.py",
+      "bytes": 14122,
+      "sha256": "ffef89c27cca762c1fd88774084f5bf7c8732b082b5ae8fffae546cac828ec67"
+    },
+    {
+      "path": "baselines/unigoal_m/k2/state.py",
+      "bytes": 7356,
+      "sha256": "cefeef7403fc5017e630a059be06e1163eff54b33f75620cb74a59ffd9763bda"
+    },
+    {
+      "path": "baselines/unigoal_m/k5/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "baselines/unigoal_m/k5/agent.py",
+      "bytes": 2854,
+      "sha256": "5768da55bc582c903e3e44ec5161ad324353cd5eb8a98c6c20d7e1da7ad46331"
+    },
+    {
+      "path": "baselines/unigoal_m/k5/env.py",
+      "bytes": 7984,
+      "sha256": "72ae002c74c0bcfd36b61e8d8408ff9a62351753ebc0014d728f1e98d1764927"
+    },
+    {
+      "path": "baselines/unigoal_m/k5/main.py",
+      "bytes": 14787,
+      "sha256": "5ae02026161725c8dfce096bc87d9e59224e3488ab61271781d1685d64176258"
+    },
+    {
+      "path": "baselines/unigoal_m/k5/state.py",
+      "bytes": 7356,
+      "sha256": "cefeef7403fc5017e630a059be06e1163eff54b33f75620cb74a59ffd9763bda"
+    },
+    {
+      "path": "baselines/unigoal_m/portability_changes.diff",
+      "bytes": 5241,
+      "sha256": "a38b3d240fc2be50684c15d469a41df35ecf4865cff6f7ec441f700077efb151"
+    },
+    {
+      "path": "baselines/unigoal_m/requirements-upstream-snapshot.txt",
+      "bytes": 120,
+      "sha256": "2d5b82ed1300cf32264220f91f147c94d7543268a9a87743f3aca3a6e10a8124"
+    },
+    {
+      "path": "baselines/unigoal_m/run.py",
+      "bytes": 2980,
+      "sha256": "ee4c12baed6fa10a952abe8fbdf879787f26bcd55d2dd89cdbed99f469466ce7"
+    },
+    {
+      "path": "baselines/unigoal_m/test_state.py",
+      "bytes": 1869,
+      "sha256": "adc34946e9377da9999a690c72a27fb05a310d4d5b5b3f6c47ce807ac59cfbbe"
+    },
+    {
+      "path": "baselines/unigoal_m/upstream.lock.json",
+      "bytes": 4610,
+      "sha256": "f3ff5ba2a7ca18a1e410de9b9df1a22c939006a541499d3622fa362ea90e0972"
+    },
+    {
+      "path": "baselines/unigoal_m/validation.json",
+      "bytes": 708,
+      "sha256": "de4bc28702d71cf666817693bd40e09c985d3a4c7313559a2c0380026a4da888"
+    },
+    {
       "path": "conda-explicit.txt",
       "bytes": 12947,
       "sha256": "cc15da5844dbfae1195fef74b7de66e94f67b01a3e8a8edcde20addb97bae603"
@@ -4786,6 +4896,16 @@
       "sha256": "42cfac64ebe993dcdba6b95c55503a8c35158ffd7a8cebf54cf7d5b074e1210c"
     },
     {
+      "path": "docs/real_robot/CODEX_REAL_ROBOT_README.md",
+      "bytes": 7226,
+      "sha256": "21fb842e6c95a9e0a84c64282b4e26d787e71e47b30b8c8517ec441e7ae93557"
+    },
+    {
+      "path": "docs/real_robot/Real_Robot_Quantitative_Experiment_Checklist_20261105.md",
+      "bytes": 22807,
+      "sha256": "79c14fa26df461c318915372958c5331ed125f131fabf09dc50ed5faa5686242"
+    },
+    {
       "path": "docs/real_robot/real_robot_30hz_stop_go_implementation.md",
       "bytes": 37003,
       "sha256": "ae77cc14de38e8abe8d2de22807a38644c55a0731c2604d1d5ba6ec16ffab35b"
@@ -4794,11 +4914,6 @@
       "path": "docs/real_robot/real_robot_mid360_integration.md",
       "bytes": 29691,
       "sha256": "8d17938f99e379d007c4b58e757745fd72ba98e7e62d0b679e7ff1d52858cf5c"
-    },
-    {
-      "path": "docs/real_robot/\u505c\u8d70\u5f0f\u5bfc\u822a\u6d41\u7a0b.md",
-      "bytes": 39034,
-      "sha256": "3702e356f09211eeef0b342d7bcd5cf7ec2ade8543e336de658ad50f0633ff01"
     },
     {
       "path": "envs/__init__.py",
@@ -8773,7 +8888,7 @@
     {
       "path": "release/validation.json",
       "bytes": 145,
-      "sha256": "daf5107f2ce6021b7891afa4b3c3eb7091d1a195153218f0ab6b8cf23557f7fb"
+      "sha256": "e3b399a7fbd547a9ced3d882a25a1a774e50fbf96f1f4263f9fb5fde8f4be4d3"
     },
     {
       "path": "requirements-runtime.txt",
@@ -8787,8 +8902,8 @@
     },
     {
       "path": "tools/check_release.py",
-      "bytes": 2238,
-      "sha256": "17dfd30b7f78e9b9929b845bc010de57f35a0937980e3e661ab5cf3dda5b91a0"
+      "bytes": 2250,
+      "sha256": "867fe0a227da3cd99a446f8de07bf1a90104a2ea617831505d7ce7540bb07af3"
     },
     {
       "path": "tools/run_multi_goal.py",

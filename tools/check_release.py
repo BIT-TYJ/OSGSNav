@@ -26,7 +26,7 @@ def main():
         if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest() != item['sha256']:
             errors.append('Exported source differs: '+rel)
     # Check project imports without importing Habitat, torch or CUDA extensions.
-    prefixes = {'agents','algo','envs','utils','gaussian_mapping','ieve_minav','multi_iin_v0',
+    prefixes = {'baselines','agents','algo','envs','utils','gaussian_mapping','ieve_minav','multi_iin_v0',
                 'five_goal_benchmark_20261026','memory_safe_clustering','navigation_acceleration_20261027'}
     for p in ROOT.rglob('*.py'):
         if '.git' in p.parts or '3rdparty' in p.parts or 'submodules' in p.parts:

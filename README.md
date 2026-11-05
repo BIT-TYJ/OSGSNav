@@ -63,3 +63,7 @@ Datasets, checkpoints, compiled CUDA binaries, experiment logs and results are e
 This project builds on [IEVE](https://github.com/XiaohanLei/IEVE), [Habitat-Lab](https://github.com/facebookresearch/habitat-lab), [LightGlue](https://github.com/cvg/LightGlue), Detectron2, Gaussian Splatting and GauSS-MI. Original source notices and available vendored licenses are retained. See [third-party notices](THIRD_PARTY_NOTICES.md). No new blanket license is asserted for code with different upstream terms.
 
 The original IEVE overview and citation are retained in [docs/IEVE_UPSTREAM_README.md](docs/IEVE_UPSTREAM_README.md).
+
+## UniGoal-M baseline and robot Codex handoff
+
+The independent [UniGoal-M adapter](baselines/unigoal_m/README.md) provides two-goal/five-goal reference simulation entry points with a pinned upstream dependency. It remains separate from OSGSNav. For the robot computer, start with [the Codex handoff README](docs/real_robot/CODEX_REAL_ROBOT_README.md) and [the quantitative-experiment checklist](docs/real_robot/Real_Robot_Quantitative_Experiment_Checklist_20261105.md). The operator already has a working single-goal OSGSNav hardware demo separately; archive and preserve that actual version before porting these sequential adapters.

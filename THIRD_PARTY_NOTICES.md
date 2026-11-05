@@ -12,3 +12,5 @@ This snapshot does not replace existing copyright or license terms.
 - **Datasets and checkpoints:** no HM3D scene data, target images, learned model weights or experimental outcomes are included. Sequence manifests contain only source references and task metadata.
 
 The historical optional Grounded-SAM fallback rooted at `3rdparty/minav` is not included. Its code is not required by the default IEVE Mask R-CNN backend used by this release's launch recipe.
+
+- **UniGoal-M adapter dependency:** pinned to `BIT-TYJ/omnigoal` revision `6e581d269e246d60cb1276b9af812f4d864eb2a4`, the actual experimental fork. The upstream source/weights are not vendored by this update; its own notices apply. Adapter origin and path-only changes are recorded in `baselines/unigoal_m/adapter_provenance.json` and `portability_changes.diff`.
